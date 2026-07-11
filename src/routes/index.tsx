@@ -39,9 +39,39 @@ export const Route = createFileRoute("/")({
 
 function Logo() {
   return (
-    <motion.div className="flex items-center gap-2" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-      <div className="h-6 w-6 rounded-full lime-panel grid place-items-center">
-        <Mic className="h-3.5 w-3.5" strokeWidth={2.5} />
+    <motion.div 
+      className="flex items-center gap-2" 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      transition={{ duration: 0.6 }}
+      role="img"
+      aria-label="Vozdex AI Logo"
+    >
+      <div className="h-8 w-8 relative">
+        <svg
+          viewBox="0 0 100 100"
+          className="w-full h-full drop-shadow-[0_0_8px_rgba(163,230,53,0.4)]"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#D9F99D" />
+              <stop offset="100%" stopColor="#84CC16" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M22 30L48 80C50 84 54 84 56 80L62 68"
+            stroke="url(#logo-grad)"
+            strokeWidth="14"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <rect x="68" y="55" width="6" height="20" rx="3" fill="url(#logo-grad)" />
+          <rect x="78" y="40" width="6" height="35" rx="3" fill="url(#logo-grad)" />
+          <rect x="88" y="25" width="6" height="30" rx="3" fill="url(#logo-grad)" />
+          <rect x="98" y="35" width="6" height="15" rx="3" fill="url(#logo-grad)" />
+        </svg>
       </div>
       <span className="font-serif text-xl tracking-[0.15em]">VOZDEX AI</span>
     </motion.div>
