@@ -1,0 +1,201 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@layer base {
+  @font-face {
+    font-family: "InstrumentSerif";
+    src: url("https://fonts.gstatic.com/s/instrumentserif/v4/jizDREVItHgc8qDIbSTKq4XKVjqPCM7SnHZK5RAr9g.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+@theme inline {
+  --font-serif: "Instrument Serif", "InstrumentSerif", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-lime: var(--lime);
+  --color-lime-glow: var(--lime-glow);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+}
+
+:root {
+  --radius: 0.25rem;
+
+  /* Dark fintech palette pulled from the Vozdex AI dapp */
+  --background: oklch(0.14 0.005 260);
+  --foreground: oklch(0.97 0.005 260);
+
+  --surface: oklch(0.18 0.006 260);
+  --surface-2: oklch(0.22 0.008 260);
+
+  --card: oklch(0.17 0.006 260);
+  --card-foreground: oklch(0.97 0.005 260);
+  --popover: oklch(0.17 0.006 260);
+  --popover-foreground: oklch(0.97 0.005 260);
+
+  --lime: oklch(0.92 0.22 125);
+  --lime-glow: oklch(0.95 0.24 128);
+
+  --primary: oklch(0.92 0.22 125);
+  --primary-foreground: oklch(0.14 0.005 260);
+  --secondary: oklch(0.22 0.008 260);
+  --secondary-foreground: oklch(0.97 0.005 260);
+  --muted: oklch(0.22 0.008 260);
+  --muted-foreground: oklch(0.65 0.01 260);
+  --accent: oklch(0.92 0.22 125);
+  --accent-foreground: oklch(0.14 0.005 260);
+  --destructive: oklch(0.65 0.24 25);
+  --destructive-foreground: oklch(0.97 0 0);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.92 0.22 125);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  .font-serif { font-family: var(--font-serif); }
+  .font-mono { font-family: var(--font-mono); }
+}
+
+@utility grid-bg {
+  background-image:
+    linear-gradient(to right, oklch(1 0 0 / 4%) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 4%) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@utility dot-bg {
+  background-image: radial-gradient(oklch(0.92 0.22 125 / 30%) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+@utility lime-panel {
+  background: linear-gradient(135deg, oklch(0.92 0.22 125), oklch(0.85 0.24 128));
+  color: oklch(0.14 0.005 260);
+}
+
+@utility btn-lime {
+  background: var(--lime);
+  color: oklch(0.14 0.005 260);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: filter 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 0 40px -8px oklch(0.92 0.22 125 / 60%);
+}
+@utility btn-lime {
+  &:hover { filter: brightness(1.08); transform: translateY(-1px); }
+}
+
+@utility btn-ghost {
+  background: transparent;
+  color: var(--foreground);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 2px;
+  border: 1px solid oklch(1 0 0 / 15%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s ease;
+}
+@utility btn-ghost {
+  &:hover { background: oklch(1 0 0 / 6%); }
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+/* ---------- Motion keyframes ---------- */
+@keyframes grid-drift {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 48px 48px, 48px 48px; }
+}
+@keyframes float-y {
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.4; }
+  50% { transform: translate3d(0, -30px, 0); opacity: 0.9; }
+}
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.08); }
+}
+@keyframes breathe {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 80px -10px oklch(0.92 0.22 125 / 0.55); }
+  50% { transform: scale(1.05); box-shadow: 0 0 140px -6px oklch(0.92 0.22 125 / 0.85); }
+}
+@keyframes ring-pulse {
+  0% { transform: scale(0.85); opacity: 0.7; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(-0.6deg); }
+  50% { transform: translateY(-14px) rotate(0.6deg); }
+}
+
+.animate-grid-drift { animation: grid-drift 24s linear infinite; }
+.animate-float { animation: float-y 10s ease-in-out infinite; }
+.animate-pulse-slow { animation: pulse-slow 8s ease-in-out infinite; }
+.animate-breathe { animation: breathe 3.4s ease-in-out infinite; }
+.animate-ring-pulse { animation: ring-pulse 2.6s ease-out infinite; }
+.animate-spin-slow { animation: spin-slow 18s linear infinite; }
+.animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
