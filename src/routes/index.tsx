@@ -40,12 +40,18 @@ export const Route = createFileRoute("/")({
 function Logo() {
   return (
     <motion.div 
-      className="flex items-center gap-2" 
+      className="flex items-center gap-3"
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       transition={{ duration: 0.6 }}
     >
-      <img src="/voxdex-logo.png" alt="Vozdex AI Logo" className="h-10 w-auto object-contain" />
+      <div className="flex h-12 w-12 items-center justify-center overflow-hidden">
+        <img
+          src="/voxdex-logo.png"
+          alt="Vozdex AI Logo"
+          className="h-full w-full max-w-none scale-[2.35] object-contain"
+        />
+      </div>
       <span className="font-serif text-xl tracking-[0.15em]">VOZDEX AI</span>
     </motion.div>
   );
