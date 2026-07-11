@@ -1008,7 +1008,7 @@ function Footer() {
   const cols = [
     { h: "Products", l: ["Voice Trading", "Voice Guardrails", "Agentic Trading"] },
     { h: "Protocol", l: ["Roadmap", "Docs", "Router API"] },
-    { h: "Community", l: ["X", "Discord", "GitHub"] },
+    { h: "Community", l: ["X", "TG"] },
   ];
   return (
     <footer className="relative bg-[oklch(0.08_0.005_260)] border-t border-border overflow-hidden">
