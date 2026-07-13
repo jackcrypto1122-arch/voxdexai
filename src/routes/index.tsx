@@ -1,21 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  ArrowLeftRight,
   ArrowRight,
   ArrowUpRight,
-  BarChart3,
   CheckCircle2,
-  ChevronDown,
-  Clock3,
   Lock,
   Mic,
   Minus,
   Network,
   Plus,
   Radio,
-  Settings2,
   Shield,
-  Wallet,
   Zap,
 } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -37,10 +31,10 @@ export const Route = createFileRoute("/")({
 
 function Logo() {
   return (
-    <motion.div 
+    <motion.div
       className="flex items-center gap-3"
-      initial={{ opacity: 0 }} 
-      animate={{ opacity: 1 }} 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
       <div className="flex h-12 w-12 items-center justify-center overflow-hidden">
@@ -146,30 +140,6 @@ function VoiceWave() {
 }
 
 function TradingTerminalPreview() {
-  const nav = [
-    { label: "Swap", icon: ArrowLeftRight, active: true },
-    { label: "Portfolio", icon: Wallet },
-    { label: "Markets", icon: BarChart3 },
-    { label: "Orders", icon: ArrowUpRight },
-    { label: "History", icon: Clock3 },
-    { label: "Settings", icon: Settings2 },
-    { label: "Private x402 Pay", icon: Lock },
-    { label: "Key Recovery", icon: Shield },
-  ];
-
-  const stats = [
-    { label: "Portfolio", value: "$5.78", detail: "1 live holding" },
-    { label: "ETH Spot", value: "$1,798", detail: "-0.07%" },
-    { label: "Top Mover", value: "ETH", detail: "-0.07%" },
-    { label: "Tracked Pairs", value: "4", detail: "Uniswap-style router" },
-  ];
-
-  const activity = [
-    { pair: "USDC -> SOL", type: "swap", time: "8:14 PM" },
-    { pair: "Send Transaction", type: "send", time: "May 11, 6:20 AM" },
-    { pair: "Send Transaction", type: "send", time: "May 11, 6:05 AM" },
-  ];
-
   return (
     <Reveal delay={0.2} y={40} className="relative mt-16 mx-auto max-w-6xl">
       <div className="absolute -inset-10 rounded-full bg-[radial-gradient(circle,oklch(0.92_0.22_125/_0.14),transparent_60%)] blur-3xl" />
@@ -180,318 +150,12 @@ function TradingTerminalPreview() {
         className="relative overflow-hidden rounded-[28px] border border-lime/15 bg-[#040608] shadow-[0_30px_120px_rgba(186,255,61,0.12)] animate-float-slow"
         style={{ transformPerspective: 1200 }}
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(190,255,50,0.12),transparent_35%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_30%)]" />
-        <div className="grid min-h-[620px] lg:grid-cols-[112px_minmax(0,1fr)_220px]">
-          <aside className="hidden border-r border-white/6 bg-black/30 p-4 md:flex md:flex-col">
-            <div>
-              <div className="font-serif text-2xl tracking-[0.16em] text-white">VOZDEX AI</div>
-              <div className="mt-1 text-[9px] font-mono uppercase tracking-[0.32em] text-lime/70">
-                Voice Trading Protocol
-              </div>
-            </div>
-
-            <div className="mt-8 space-y-1.5">
-              {nav.map((item) => (
-                <div
-                  key={item.label}
-                  className={`flex items-center gap-2 rounded-xl px-3 py-2 text-[10px] font-mono uppercase tracking-[0.22em] transition-colors ${
-                    item.active
-                      ? "bg-lime text-black shadow-[0_0_30px_rgba(190,255,50,0.25)]"
-                      : "text-white/60 hover:bg-white/5 hover:text-white"
-                  }`}
-                >
-                  <item.icon className="h-3.5 w-3.5" />
-                  <span>{item.label}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-6 rounded-2xl border border-white/8 bg-white/[0.04] p-2.5">
-              <div className="flex items-center justify-between gap-2">
-                <div>
-                  <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-white">0.003</div>
-                  <div className="text-[9px] font-mono uppercase tracking-[0.2em] text-white/45">ETH</div>
-                </div>
-                <div className="flex min-w-0 items-center gap-2 rounded-xl bg-white/[0.04] px-2 py-1.5">
-                  <div className="grid h-6 w-6 place-items-center rounded-full bg-lime/10 text-[9px] font-mono text-lime">
-                    0x
-                  </div>
-                  <div className="min-w-0">
-                    <div className="truncate text-[10px] font-mono uppercase tracking-[0.16em] text-white">
-                      0x61...
-                    </div>
-                    <div className="text-[9px] font-mono uppercase tracking-[0.16em] text-white/45">
-                      ED32
-                    </div>
-                  </div>
-                  <ChevronDown className="h-3.5 w-3.5 shrink-0 text-white/35" />
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-auto rounded-2xl border border-lime/10 bg-white/[0.03] p-3">
-              <div className="flex items-center justify-between text-[9px] font-mono uppercase tracking-[0.24em] text-white/45">
-                <span>Terminal</span>
-                <span className="text-lime">Connected</span>
-              </div>
-              <div className="mt-4 flex justify-center">
-                <div className="grid h-14 w-14 place-items-center rounded-full border border-lime/20 bg-lime/5">
-                  <Network className="h-6 w-6 text-lime" />
-                </div>
-              </div>
-              <div className="mt-4 space-y-2 text-[9px] font-mono uppercase tracking-[0.18em] text-white/55">
-                <div className="flex items-center justify-between">
-                  <span>wallet</span>
-                  <span>0x61...ed32</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span>rpc</span>
-                  <span>robinhood</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span>latency</span>
-                  <span className="text-lime">42ms</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span>block</span>
-                  <span>6,918,481</span>
-                </div>
-              </div>
-            </div>
-          </aside>
-
-          <div className="relative flex min-w-0 flex-col">
-            <div className="flex items-center justify-between border-b border-white/6 px-4 py-4 lg:px-6">
-              <div>
-                <div className="text-[9px] font-mono uppercase tracking-[0.32em] text-white/45">
-                  Protocol · v1.0.4
-                </div>
-                <div className="mt-1 font-serif text-3xl text-white">Swap Tokens</div>
-                <p className="mt-1 max-w-xl text-xs text-white/45">
-                  Live Robinhood Chain routing, wallet-aware execution, and voice-assisted intent capture.
-                </p>
-              </div>
-              <div className="hidden rounded-full border border-lime/15 bg-white/[0.03] px-3 py-2 text-[10px] font-mono uppercase tracking-[0.18em] text-white/60 lg:flex lg:items-center lg:gap-2">
-                <Wallet className="h-3.5 w-3.5 text-lime" />
-                <span>Wallet 0x61...ed32</span>
-              </div>
-            </div>
-
-            <div className="grid gap-3 px-4 py-4 md:grid-cols-2 lg:grid-cols-4 lg:px-6">
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-2xl border border-white/6 bg-white/[0.025] p-4 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]"
-                >
-                  <div className="text-[9px] font-mono uppercase tracking-[0.28em] text-white/40">
-                    {stat.label}
-                  </div>
-                  <div className="mt-2 font-serif text-3xl text-lime">{stat.value}</div>
-                  <div
-                    className={`mt-1 text-[10px] font-mono uppercase tracking-[0.18em] ${
-                      stat.detail.startsWith("-") ? "text-destructive/80" : "text-white/45"
-                    }`}
-                  >
-                    {stat.detail}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="relative flex flex-1 flex-col items-center justify-center overflow-hidden px-6 py-10">
-              <div className="absolute inset-0 dot-bg opacity-25" />
-              <div className="absolute h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(190,255,50,0.22),transparent_60%)] blur-3xl" />
-              <div className="relative">
-                <div className="absolute inset-0 rounded-full border border-lime/15 animate-spin-slow" />
-                <div
-                  className="absolute inset-4 rounded-full border border-lime/10"
-                  style={{ animation: "spin-slow 22s linear infinite reverse" }}
-                />
-                <div className="absolute inset-0 rounded-full border border-lime/25 animate-ring-pulse" />
-                <div
-                  className="absolute inset-0 rounded-full border border-lime/25 animate-ring-pulse"
-                  style={{ animationDelay: "1.2s" }}
-                />
-                <div className="grid h-40 w-40 place-items-center rounded-full bg-[radial-gradient(circle_at_30%_30%,#dfff75,#b8ff40_60%,#87d70f)] shadow-[0_0_80px_rgba(190,255,50,0.35)]">
-                  <Mic className="h-11 w-11 text-black" strokeWidth={2.5} />
-                </div>
-              </div>
-              <div className="relative mt-8 text-center">
-                <div className="font-serif text-4xl text-white">Tap to Speak</div>
-                <div className="mt-2 text-[11px] font-mono uppercase tracking-[0.2em] text-white/40">
-                  "Sell 1 ETH for USDC"
-                </div>
-              </div>
-              <div className="relative mt-6">
-                <VoiceWave />
-              </div>
-            </div>
-
-            <div className="px-4 pb-4 lg:px-6 lg:pb-6">
-              <div className="rounded-[26px] border border-lime/15 bg-black/55 p-4 shadow-[0_0_70px_rgba(190,255,50,0.08)] backdrop-blur-sm">
-                <div className="grid gap-4 lg:grid-cols-[1fr_auto_1fr] lg:items-end">
-                  <div>
-                    <div className="text-[9px] font-mono uppercase tracking-[0.3em] text-white/45">
-                      You Pay
-                    </div>
-                    <div className="mt-3 flex items-center gap-2 rounded-2xl border border-white/8 bg-white/[0.03] px-3 py-3">
-                      <div className="grid h-9 w-9 place-items-center rounded-full bg-white/10 text-sm font-mono text-white">
-                        E
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="font-mono text-xs uppercase tracking-[0.18em] text-white">ETH · Ethereum</div>
-                        <div className="text-[10px] font-mono uppercase tracking-[0.16em] text-white/40">
-                          Balance 0.0032 ETH
-                        </div>
-                      </div>
-                      <ChevronDown className="h-4 w-4 text-white/40" />
-                    </div>
-                    <div className="mt-3 flex items-end justify-between">
-                      <button className="rounded-full border border-white/10 px-2.5 py-1 text-[10px] font-mono uppercase tracking-[0.2em] text-white/55">
-                        Max
-                      </button>
-                      <div className="font-serif text-4xl text-white">0.02</div>
-                    </div>
-                  </div>
-
-                  <div className="mx-auto grid h-10 w-10 place-items-center rounded-full border border-lime/20 bg-lime/10 text-lime">
-                    <Plus className="h-4 w-4" />
-                  </div>
-
-                  <div>
-                    <div className="text-[9px] font-mono uppercase tracking-[0.3em] text-white/45">
-                      You Receive
-                    </div>
-                    <div className="mt-3 flex items-center gap-2 rounded-2xl border border-white/8 bg-white/[0.03] px-3 py-3">
-                      <div className="grid h-9 w-9 place-items-center rounded-full bg-white/10 text-sm font-mono text-white">
-                        A
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="font-mono text-xs uppercase tracking-[0.18em] text-white">ARROW · Arrow</div>
-                        <div className="text-[10px] font-mono uppercase tracking-[0.16em] text-white/40">
-                          Balance 0 ARROW
-                        </div>
-                      </div>
-                      <ChevronDown className="h-4 w-4 text-white/40" />
-                    </div>
-                    <div className="mt-3 flex items-end justify-end">
-                      <div className="font-serif text-4xl text-white">17.946286</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-4 grid gap-3 border-t border-white/6 pt-4 text-[10px] font-mono uppercase tracking-[0.2em] text-white/50 md:grid-cols-3">
-                  <div>
-                    <div>Rate</div>
-                    <div className="mt-1 text-white">1 ETH = 897.314 ARROW</div>
-                  </div>
-                  <div>
-                    <div>Slippage Tolerance</div>
-                    <div className="mt-1 text-white">0.50%</div>
-                  </div>
-                  <div>
-                    <div>Est. Network Fee</div>
-                    <div className="mt-1 text-white">0.00021 ETH</div>
-                  </div>
-                </div>
-
-                <button className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-lime px-5 py-3 text-[11px] font-mono uppercase tracking-[0.28em] text-black transition-transform hover:scale-[1.01]">
-                  Review and Sign Swap
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <aside className="hidden border-l border-white/6 bg-black/25 p-4 xl:flex xl:flex-col">
-            <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
-              <div className="flex items-center justify-between text-[9px] font-mono uppercase tracking-[0.28em] text-white/45">
-                <span>Wallet</span>
-                <span className="text-lime">Live</span>
-              </div>
-              <div className="mt-2 font-serif text-xl text-white">Live Robinhood Chai...</div>
-              <div className="mt-3 rounded-xl border border-white/6 bg-black/40 px-3 py-2 text-[10px] font-mono uppercase tracking-[0.18em] text-white/55">
-                0x61...ed32
-              </div>
-              <div className="mt-4 space-y-3 text-[10px] font-mono uppercase tracking-[0.16em] text-white/45">
-                <div className="flex items-end justify-between">
-                  <span>ETH</span>
-                  <div className="text-right">
-                    <div className="text-white">0.0032</div>
-                    <div className="text-[9px] text-white/40">$5.78</div>
-                  </div>
-                </div>
-                <div className="flex items-end justify-between">
-                  <span>Portfolio Value</span>
-                  <span className="font-serif text-3xl text-white">$5.78</span>
-                </div>
-              </div>
-              <button className="mt-4 w-full rounded-full border border-white/10 px-3 py-2 text-[10px] font-mono uppercase tracking-[0.2em] text-white/65">
-                Open Portfolio
-              </button>
-            </div>
-
-            <div className="mt-4 rounded-2xl border border-white/8 bg-white/[0.03] p-4">
-              <div className="text-[9px] font-mono uppercase tracking-[0.28em] text-white/45">Market</div>
-              <div className="mt-2 flex items-end justify-between">
-                <div>
-                  <div className="font-serif text-2xl text-white">ETH / USD</div>
-                  <div className="mt-1 text-[10px] font-mono uppercase tracking-[0.18em] text-destructive/80">
-                    -0.07%
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="font-serif text-4xl text-white">$1,798</div>
-                  <div className="text-[9px] font-mono uppercase tracking-[0.18em] text-white/35">24h</div>
-                </div>
-              </div>
-              <div className="mt-4 h-20 rounded-xl border border-lime/10 bg-[linear-gradient(180deg,rgba(190,255,50,0.08),transparent)] p-3">
-                <svg viewBox="0 0 180 70" className="h-full w-full">
-                  <path
-                    d="M0 58 L20 55 L40 46 L60 50 L80 38 L100 41 L120 28 L140 18 L160 24 L180 15"
-                    fill="none"
-                    stroke="oklch(0.92 0.22 125)"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </div>
-            </div>
-
-            <div className="mt-4 flex-1 rounded-2xl border border-white/8 bg-white/[0.03] p-4">
-              <div className="text-[9px] font-mono uppercase tracking-[0.28em] text-white/45">
-                Recent Activity
-              </div>
-              <div className="mt-4 space-y-3">
-                {activity.map((item) => (
-                  <div
-                    key={`${item.pair}-${item.time}`}
-                    className="rounded-xl border border-white/6 bg-black/35 px-3 py-3"
-                  >
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="flex items-start gap-2">
-                        <div className="mt-0.5 grid h-6 w-6 place-items-center rounded-full bg-lime/10 text-lime">
-                          <ArrowUpRight className="h-3.5 w-3.5" />
-                        </div>
-                        <div>
-                          <div className="text-[10px] font-mono uppercase tracking-[0.18em] text-white">
-                            {item.pair}
-                          </div>
-                          <div className="mt-1 text-[9px] font-mono uppercase tracking-[0.16em] text-white/40">
-                            {item.type}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="text-[9px] font-mono uppercase tracking-[0.16em] text-white/35">
-                        {item.time}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </aside>
-        </div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(190,255,50,0.12),transparent_35%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_30%)] pointer-events-none" />
+        <img
+          src="/dpp.png"
+          alt="Vozdex AI — Voice Trading Terminal"
+          className="relative w-full h-auto block"
+        />
       </motion.div>
     </Reveal>
   );
@@ -862,7 +526,7 @@ function KeyRecovery() {
     { x: 30, y: 72, label: "Challenge" },
     { x: 72, y: 76, label: "Wallet" },
   ];
-  const edges = [[0,1],[1,2],[1,3],[1,4],[3,4],[2,4]] as const;
+  const edges = [[0, 1], [1, 2], [1, 3], [1, 4], [3, 4], [2, 4]] as const;
   const factors = [
     "Complete a spoken voice challenge to prove liveness.",
     "Match the voiceprint as one recovery factor, not the only factor.",
