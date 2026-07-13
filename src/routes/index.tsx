@@ -4,12 +4,14 @@ import {
   ArrowUpRight,
   CheckCircle2,
   Lock,
+  Menu,
   Mic,
   Minus,
   Network,
   Plus,
   Radio,
   Shield,
+  X,
   Zap,
 } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -82,6 +84,7 @@ function Nav() {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   useMotionValueEvent(scrollY, "change", (y) => {
     const prev = scrollY.getPrevious() ?? 0;
     setHidden(y > prev && y > 120);
@@ -90,12 +93,13 @@ function Nav() {
   return (
     <motion.header
       initial={{ y: -80, opacity: 0, filter: "blur(8px)" }}
-      animate={{ y: hidden ? -80 : 0, opacity: 1, filter: "blur(0px)" }}
+      animate={{ y: hidden && !mobileOpen ? -80 : 0, opacity: 1, filter: "blur(0px)" }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       className={`sticky top-0 z-50 border-b transition-colors ${scrolled ? "backdrop-blur-xl bg-background/70 border-border" : "backdrop-blur-md bg-background/40 border-transparent"}`}
     >
       <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
         <Logo />
+        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
           {links.map((l, i) => (
             <motion.a
@@ -113,9 +117,55 @@ function Nav() {
         </nav>
         <div className="flex items-center gap-2">
           <a href="https://vozdex.gitbook.io/vozdex-ai-whitepaper" className="btn-ghost hidden sm:inline-flex">WHITEPAPER</a>
-          <Magnetic><a href="#" className="btn-lime group">Launch Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" /></a></Magnetic>
+          <Magnetic><a href="#" className="btn-lime group hidden sm:inline-flex">Launch Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" /></a></Magnetic>
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-md border border-border bg-surface hover:bg-surface-2 transition-colors"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="md:hidden overflow-hidden border-t border-border bg-background/95 backdrop-blur-xl"
+          >
+            <nav className="flex flex-col px-6 py-4 gap-1">
+              {links.map((l) => (
+                <a
+                  key={l.l}
+                  href={l.h}
+                  onClick={() => setMobileOpen(false)}
+                  className="py-3 px-3 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-surface transition-colors"
+                >
+                  {l.l}
+                </a>
+              ))}
+              <a
+                href="https://vozdex.gitbook.io/vozdex-ai-whitepaper"
+                onClick={() => setMobileOpen(false)}
+                className="py-3 px-3 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-surface transition-colors"
+              >
+                Whitepaper
+              </a>
+              <div className="pt-3 mt-2 border-t border-border">
+                <a href="#" onClick={() => setMobileOpen(false)} className="btn-lime group w-full justify-center">
+                  Launch Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                </a>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }
