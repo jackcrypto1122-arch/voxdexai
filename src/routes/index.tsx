@@ -39,7 +39,7 @@ function Logo() {
     >
       <div className="flex h-12 w-12 items-center justify-center overflow-hidden">
         <img
-          src="/voxdex-logo.png"
+          src="/vozdex-logo.svg.jpeg"
           alt="Vozdex AI Logo"
           className="h-full w-full max-w-none scale-[2.35] object-contain"
         />
@@ -77,7 +77,7 @@ function Nav() {
     { l: "Voice Trading", h: "#voice-trading" },
     { l: "Private x402", h: "#private-payments" },
     { l: "Recovery", h: "#key-recovery" },
-    { l: "Roadmap", h: "#roadmap" },
+    { l: "Whitepaper", h: "#" },
   ];
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
@@ -112,7 +112,7 @@ function Nav() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <a href="#roadmap" className="btn-ghost hidden sm:inline-flex">Roadmap</a>
+          <a href="#" className="btn-ghost hidden sm:inline-flex">Whitepaper</a>
           <Magnetic><a href="#" className="btn-lime group">Launch Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" /></a></Magnetic>
         </div>
       </div>
@@ -204,7 +204,7 @@ function Hero() {
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </Magnetic>
-          <Magnetic strength={12}><a href="#roadmap" className="btn-ghost">View Roadmap</a></Magnetic>
+          <Magnetic strength={12}><a href="#" className="btn-ghost">Whitepaper</a></Magnetic>
         </motion.div>
 
         <TradingTerminalPreview />
@@ -259,7 +259,7 @@ function VoiceTrading() {
   const examples = [
     "Swap 0.5 ETH to USDC",
     "Buy $250 of BTC",
-    "Sell all my PEPE",
+    "Sell all my CASHCAT",
     "Bridge ETH to Base",
     "Swap my entire balance",
   ];
@@ -321,9 +321,7 @@ function VoiceTrading() {
                   <ArrowRight className="ml-auto h-3.5 w-3.5 text-muted-foreground group-hover:text-lime group-hover:translate-x-0.5 transition-all" />
                 </motion.div>
               ))}
-              <div className="pt-3 flex items-center justify-center">
-                <VoiceWave />
-              </div>
+
             </div>
           </div>
         </Reveal>
@@ -775,7 +773,7 @@ function CTA() {
         </Reveal>
         <Reveal delay={0.1} className="flex gap-3 flex-wrap">
           <Magnetic><a href="#" className="btn-lime group">Launch Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" /></a></Magnetic>
-          <Magnetic strength={12}><a href="#roadmap" className="btn-ghost">View Roadmap</a></Magnetic>
+
         </Reveal>
       </div>
     </section>
