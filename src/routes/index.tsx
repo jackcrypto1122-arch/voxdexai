@@ -63,14 +63,7 @@ function LiveBadge() {
   );
 }
 
-function SoonBadge() {
-  return (
-    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border border-yellow-400/40 bg-yellow-400/10 text-yellow-300 text-[10px] font-mono uppercase tracking-widest">
-      <span className="h-1.5 w-1.5 rounded-full bg-yellow-300 animate-pulse" />
-      Coming Soon
-    </span>
-  );
-}
+
 
 /* ---------- Nav ---------- */
 
@@ -117,7 +110,7 @@ function Nav() {
         </nav>
         <div className="flex items-center gap-2">
           <a href="https://vozdex.gitbook.io/vozdex-ai-whitepaper" className="btn-ghost hidden sm:inline-flex">WHITEPAPER</a>
-          <Magnetic><a href="#" className="btn-lime group hidden sm:inline-flex">Voice Trading <SoonBadge /> <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" /></a></Magnetic>
+          <Magnetic><a href="#" className="btn-lime group hidden sm:inline-flex">Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" /></a></Magnetic>
           {/* Mobile hamburger */}
           <button
             className="md:hidden flex items-center justify-center w-10 h-10 rounded-md border border-border bg-surface hover:bg-surface-2 transition-colors"
@@ -159,7 +152,7 @@ function Nav() {
               </a>
               <div className="pt-3 mt-2 border-t border-border">
                 <a href="#" onClick={() => setMobileOpen(false)} className="btn-lime group w-full justify-center">
-                  Voice Trading <SoonBadge /> <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                  Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                 </a>
               </div>
             </nav>
@@ -221,7 +214,6 @@ function Hero() {
           transition={{ delay: 0.1, duration: 0.6 }}
           className="inline-flex items-center gap-3 px-3 py-1 rounded-full border border-border text-xs font-mono tracking-widest uppercase text-muted-foreground bg-background/40 backdrop-blur"
         >
-          <SoonBadge />
           <span>Voice Trading · Robinhood Chain</span>
         </motion.div>
         <h1 className="mt-8 font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.98] tracking-tight max-w-5xl mx-auto">
@@ -250,7 +242,6 @@ function Hero() {
           <Magnetic>
             <a href="#" className="btn-lime group flex items-center justify-center gap-2 uppercase">
               Voice Trading
-              <SoonBadge />
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </Magnetic>
@@ -267,9 +258,9 @@ function Hero() {
 
 function ProductsIntro() {
   const items = [
-    { n: "01", t: "Voice Over Trading", s: "SOON", d: "Speak trading intents. Execute on Robinhood Chain.", i: Mic },
-    { n: "02", t: "Private x402 Payments", s: "SOON", d: "Let a voice agent authorize private machine-native payments.", i: Lock },
-    { n: "03", t: "Key Recovery", s: "SOON", d: "Recover access with voice verification and trusted contacts.", i: Shield },
+    { n: "01", t: "Voice Over Trading", d: "Speak trading intents. Execute on Robinhood Chain.", i: Mic },
+    { n: "02", t: "Private x402 Payments", d: "Let a voice agent authorize private machine-native payments.", i: Lock },
+    { n: "03", t: "Key Recovery", d: "Recover access with voice verification and trusted contacts.", i: Shield },
   ];
   return (
     <section className="relative border-y border-border bg-[oklch(0.09_0.005_260)]">
@@ -289,7 +280,6 @@ function ProductsIntro() {
                   <motion.div className="h-10 w-10 rounded-sm lime-panel grid place-items-center" whileHover={{ rotate: 8, scale: 1.08 }}>
                     <it.i className="h-5 w-5" strokeWidth={2} />
                   </motion.div>
-                  {it.s === "LIVE" ? <LiveBadge /> : <SoonBadge />}
                 </div>
                 <div className="mt-6 font-mono text-xs text-muted-foreground">{it.n}</div>
                 <h3 className="mt-1 font-serif text-2xl text-lime">{it.t}</h3>
@@ -326,7 +316,6 @@ function VoiceTrading() {
         <Reveal>
           <div className="flex items-center gap-3">
             <span className="eyebrow">01 · Voice Over Trading</span>
-            <SoonBadge />
           </div>
           <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
             The world's first voice-over trading protocol.
@@ -343,7 +332,7 @@ function VoiceTrading() {
           </div>
           <Magnetic>
             <a href="#" className="btn-lime mt-10 group">
-              Voice Trading <SoonBadge /> <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+              Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
             </a>
           </Magnetic>
         </Reveal>
@@ -351,8 +340,7 @@ function VoiceTrading() {
         <Reveal x={30} className="relative">
           <div className="rounded-md border border-border bg-surface overflow-hidden">
             <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-surface-2">
-              <span className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground">voice intents · coming soon</span>
-              <SoonBadge />
+              <span className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground">voice intents</span>
             </div>
             <div className="p-6 space-y-3">
               {examples.map((e, i) => (
@@ -413,7 +401,6 @@ function PrivatePayments() {
                   </div>
                   <div className="mt-1 font-serif text-2xl text-white">Voice-authorized payment flow</div>
                 </div>
-                <SoonBadge />
               </div>
             </div>
 
@@ -524,7 +511,6 @@ function PrivatePayments() {
         <Reveal className="order-1 md:order-2">
           <div className="flex items-center gap-3">
             <span className="eyebrow">02 · Private x402 Payments</span>
-            <SoonBadge />
           </div>
           <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
             Private x402 payment<br />
@@ -584,7 +570,6 @@ function KeyRecovery() {
       <Reveal>
         <div className="flex items-center gap-3">
           <span className="eyebrow">03 · Key Recovery</span>
-          <SoonBadge />
         </div>
         <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
           Voice-based recovery<br />
@@ -616,7 +601,6 @@ function KeyRecovery() {
         <div className="absolute inset-0 dot-bg opacity-30" />
         <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
           <span className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground">recovery graph</span>
-          <SoonBadge />
         </div>
         <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full" preserveAspectRatio="none">
           {edges.map(([a, b], i) => {
@@ -662,9 +646,9 @@ function KeyRecovery() {
 
 function Roadmap() {
   const items = [
-    { n: "01", t: "Voice Over Trading", status: "soon", d: "Coming soon to Robinhood Chain.", i: Mic },
-    { n: "02", t: "Private x402 Payments", status: "soon", d: "Private voice-agent checkout for machine-native payments.", i: Lock },
-    { n: "03", t: "Key Recovery", status: "soon", d: "Voice challenge plus trusted contacts for wallet recovery.", i: Shield },
+    { n: "01", t: "Voice Over Trading", d: "Voice trading on Robinhood Chain.", i: Mic },
+    { n: "02", t: "Private x402 Payments", d: "Private voice-agent checkout for machine-native payments.", i: Lock },
+    { n: "03", t: "Key Recovery", d: "Voice challenge plus trusted contacts for wallet recovery.", i: Shield },
   ];
   return (
     <section id="roadmap" className="relative border-y border-border bg-[oklch(0.08_0.005_260)]">
@@ -693,11 +677,10 @@ function Roadmap() {
               <Reveal key={it.t} delay={i * 0.12} className="relative">
                 <div className="flex items-center gap-3">
                   <motion.div
-                    className={`relative h-4 w-4 rounded-full ${it.status === "live" ? "bg-lime" : "bg-yellow-300/60"} shadow-[0_0_18px_2px_oklch(0.92_0.22_125/_0.6)]`}
+                    className="relative h-4 w-4 rounded-full bg-lime shadow-[0_0_18px_2px_oklch(0.92_0.22_125/_0.6)]"
                     animate={{ scale: [1, 1.25, 1] }}
                     transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
                   />
-                  {it.status === "live" ? <LiveBadge /> : <SoonBadge />}
                 </div>
                 <div className="mt-6 flex items-center gap-3">
                   <it.i className="h-5 w-5 text-lime" />
@@ -776,7 +759,7 @@ function FAQ() {
       <Reveal>
         <h2 className="font-serif text-4xl leading-tight">Have questions?<br /><span className="text-muted-foreground italic">Find answers.</span></h2>
         <p className="mt-4 text-sm text-muted-foreground">One protocol. Three products. Built for the future of conversational finance.</p>
-        <Magnetic><a href="#" className="btn-lime mt-6 group">Voice Trading <SoonBadge /> <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" /></a></Magnetic>
+        <Magnetic><a href="#" className="btn-lime mt-6 group">Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" /></a></Magnetic>
       </Reveal>
       <div className="divide-y divide-border border-y border-border">
         {faqs.map((f, i) => (
@@ -820,7 +803,7 @@ function CTA() {
           The future of finance<br />is conversational.
         </Reveal>
         <Reveal delay={0.1} className="flex gap-3 flex-wrap">
-          <Magnetic><a href="#" className="btn-lime group">Voice Trading <SoonBadge /> <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" /></a></Magnetic>
+          <Magnetic><a href="#" className="btn-lime group">Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" /></a></Magnetic>
 
         </Reveal>
       </div>
