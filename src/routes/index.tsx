@@ -77,7 +77,7 @@ function Nav() {
     { l: "Voice Trading", h: "#voice-trading" },
     { l: "Private x402", h: "#private-payments" },
     { l: "Recovery", h: "#key-recovery" },
-    { l: "Whitepaper", h: "#" },
+    { l: "Roadmap", h: "#roadmap" },
   ];
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
@@ -112,7 +112,7 @@ function Nav() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <a href="#" className="btn-ghost hidden sm:inline-flex">Whitepaper</a>
+          <a href="#roadmap" className="btn-ghost hidden sm:inline-flex">Roadmap</a>
           <Magnetic><a href="#" className="btn-lime group">Launch Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" /></a></Magnetic>
         </div>
       </div>
@@ -198,9 +198,8 @@ function Hero() {
           className="mt-8 flex items-center justify-center gap-3 flex-wrap"
         >
           <Magnetic>
-            <a href="#" className="btn-lime group">
-              <span>Launch Voice Trading</span>
-              <LiveBadge />
+            <a href="#" className="btn-lime group flex items-center justify-center gap-2 uppercase">
+              Launch Voice Trading
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </Magnetic>
@@ -260,8 +259,6 @@ function VoiceTrading() {
     "Swap 0.5 ETH to USDC",
     "Buy $250 of BTC",
     "Sell all my CASHCAT",
-    "Bridge ETH to Base",
-    "Swap my entire balance",
   ];
   const features = [
     "Natural Language Understanding",
