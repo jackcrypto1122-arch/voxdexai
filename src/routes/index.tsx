@@ -683,20 +683,131 @@ function PrivatePayments() {
     "Useful for gated API access, automation, subscriptions, and private services.",
     "Preserves self-custody while making machine payments feel native.",
   ];
+  const consoleSteps = [
+    { label: "Intent", value: "Access premium market feed", icon: Mic },
+    { label: "Auth", value: "Voice + wallet approval", icon: Shield },
+    { label: "Settlement", value: "Private x402 proof attached", icon: Zap },
+  ];
   return (
     <section id="private-payments" className="relative border-y border-border bg-[oklch(0.09_0.005_260)]">
       <div className="mx-auto max-w-7xl px-6 py-28 grid md:grid-cols-2 gap-16 items-center">
-        <Reveal x={-30} className="relative h-[420px] grid place-items-center order-2 md:order-1">
-          <div className="absolute inset-0 rounded-full bg-[radial-gradient(closest-side,oklch(0.92_0.22_125/_0.2),transparent_70%)] blur-2xl" />
-          <div className="absolute h-80 w-80 rounded-full border border-lime/25 animate-spin-slow" />
-          <div className="absolute h-64 w-64 rounded-full border border-lime/15" style={{ animation: "spin-slow 22s linear infinite reverse" }} />
-          <div className="absolute h-48 w-48 rounded-full border border-lime/40 animate-ring-pulse" />
-          <div className="absolute h-48 w-48 rounded-full border border-lime/40 animate-ring-pulse" style={{ animationDelay: "1.3s" }} />
-          <div className="relative h-32 w-32 rounded-full lime-panel grid place-items-center animate-breathe">
-            <Lock className="h-12 w-12" strokeWidth={2} />
-          </div>
-          <div className="absolute bottom-4 flex items-center gap-2 text-xs font-mono text-muted-foreground">
-            <Mic className="h-3 w-3 text-lime" /> voice-authorized x402 intent
+        <Reveal x={-30} className="relative order-2 md:order-1">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(190,255,50,0.16),transparent_35%),radial-gradient(circle_at_70%_80%,rgba(190,255,50,0.08),transparent_32%)] blur-3xl" />
+          <div className="relative overflow-hidden rounded-[28px] border border-lime/15 bg-[#06080b] shadow-[0_30px_120px_rgba(186,255,61,0.12)]">
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),transparent_28%),radial-gradient(circle_at_top,rgba(190,255,50,0.12),transparent_38%)]" />
+            <div className="relative border-b border-white/6 px-5 py-4">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <div className="text-[9px] font-mono uppercase tracking-[0.32em] text-white/45">
+                    Private checkout console
+                  </div>
+                  <div className="mt-1 font-serif text-2xl text-white">Voice-authorized payment flow</div>
+                </div>
+                <SoonBadge />
+              </div>
+            </div>
+
+            <div className="relative grid gap-4 p-5">
+              <div className="rounded-[24px] border border-white/8 bg-white/[0.03] p-4">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <div className="text-[9px] font-mono uppercase tracking-[0.28em] text-white/40">
+                      Spoken request
+                    </div>
+                    <div className="mt-3 font-serif text-2xl text-white">
+                      "Authorize premium API access for 30 days."
+                    </div>
+                  </div>
+                  <div className="grid h-11 w-11 place-items-center rounded-full bg-lime text-black shadow-[0_0_40px_rgba(186,255,61,0.28)]">
+                    <Mic className="h-5 w-5" strokeWidth={2.4} />
+                  </div>
+                </div>
+
+                <div className="mt-4 flex items-center gap-[3px]">
+                  {Array.from({ length: 28 }).map((_, i) => (
+                    <motion.span
+                      key={i}
+                      className="block h-8 w-[3px] rounded-full bg-lime/80"
+                      animate={{ scaleY: [0.35, 1, 0.55, 0.9, 0.4] }}
+                      transition={{
+                        duration: 1.6 + (i % 4) * 0.16,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: i * 0.04,
+                      }}
+                      style={{ transformOrigin: "bottom" }}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-3">
+                {consoleSteps.map((step) => (
+                  <div
+                    key={step.label}
+                    className="rounded-2xl border border-white/8 bg-black/35 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]"
+                  >
+                    <div className="flex items-center gap-2 text-[9px] font-mono uppercase tracking-[0.24em] text-white/40">
+                      <step.icon className="h-3.5 w-3.5 text-lime" />
+                      {step.label}
+                    </div>
+                    <div className="mt-3 text-sm text-white">{step.value}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
+                <div className="rounded-[24px] border border-lime/15 bg-lime/5 p-4">
+                  <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.24em] text-lime">
+                    <Network className="h-3.5 w-3.5" />
+                    Route preview
+                  </div>
+                  <div className="mt-4 space-y-3">
+                    {[
+                      ["Requester", "Data terminal subscription"],
+                      ["Agent", "Packages x402 authorization"],
+                      ["Settlement", "Private proof delivered to service"],
+                    ].map(([label, value]) => (
+                      <div
+                        key={label}
+                        className="flex items-center justify-between gap-4 rounded-2xl border border-white/8 bg-black/35 px-4 py-3"
+                      >
+                        <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-white/45">{label}</span>
+                        <span className="text-right text-sm text-white">{value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-[24px] border border-white/8 bg-white/[0.03] p-4">
+                  <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.24em] text-white/45">
+                    <Lock className="h-3.5 w-3.5 text-lime" />
+                    Trust layers
+                  </div>
+                  <div className="mt-4 space-y-3">
+                    {[
+                      "Session voiceprint matched",
+                      "Wallet intent confirmed",
+                      "Service receives payment proof",
+                    ].map((item) => (
+                      <div key={item} className="flex items-start gap-2 text-sm text-white/80">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-lime" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-5 rounded-2xl border border-white/8 bg-black/35 px-4 py-3">
+                    <div className="text-[9px] font-mono uppercase tracking-[0.2em] text-white/40">Intent status</div>
+                    <div className="mt-2 flex items-center justify-between">
+                      <span className="text-sm text-white">Ready for one-tap approval</span>
+                      <span className="rounded-full border border-lime/30 bg-lime/10 px-2.5 py-1 text-[9px] font-mono uppercase tracking-[0.2em] text-lime">
+                        pending
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </Reveal>
 
