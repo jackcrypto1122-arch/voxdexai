@@ -117,7 +117,7 @@ function Nav() {
         </nav>
         <div className="flex items-center gap-2">
           <a href="https://vozdex.gitbook.io/vozdex-ai-whitepaper" className="btn-ghost hidden sm:inline-flex">WHITEPAPER</a>
-          <Magnetic><a href="#" className="btn-lime group hidden sm:inline-flex">Launch Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" /></a></Magnetic>
+          <Magnetic><a href="#" className="btn-lime group hidden sm:inline-flex">Voice Trading <SoonBadge /> <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" /></a></Magnetic>
           {/* Mobile hamburger */}
           <button
             className="md:hidden flex items-center justify-center w-10 h-10 rounded-md border border-border bg-surface hover:bg-surface-2 transition-colors"
@@ -159,7 +159,7 @@ function Nav() {
               </a>
               <div className="pt-3 mt-2 border-t border-border">
                 <a href="#" onClick={() => setMobileOpen(false)} className="btn-lime group w-full justify-center">
-                  Launch Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                  Voice Trading <SoonBadge /> <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                 </a>
               </div>
             </nav>
@@ -221,14 +221,14 @@ function Hero() {
           transition={{ delay: 0.1, duration: 0.6 }}
           className="inline-flex items-center gap-3 px-3 py-1 rounded-full border border-border text-xs font-mono tracking-widest uppercase text-muted-foreground bg-background/40 backdrop-blur"
         >
-          <LiveBadge />
+          <SoonBadge />
           <span>Voice Trading · Robinhood Chain</span>
         </motion.div>
         <h1 className="mt-8 font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.98] tracking-tight max-w-5xl mx-auto">
           <WordReveal text="The world's first" delay={0.15} />
           <br />
           <span className="italic text-muted-foreground">
-            <WordReveal text="live voice-over" delay={0.45} />
+            <WordReveal text="voice-over" delay={0.45} />
           </span>
           <br />
           <WordReveal text="trading protocol." delay={0.75} />
@@ -239,7 +239,7 @@ function Hero() {
           transition={{ delay: 1.15, duration: 0.6 }}
           className="mt-6 max-w-xl mx-auto text-muted-foreground"
         >
-          Trade crypto with your voice today on Robinhood Chain. Soon you'll trigger private x402 payments through a voice agent and recover access with a voice-based recovery flow — all from one AI-native protocol.
+          Trade crypto with your voice on Robinhood Chain. Trigger private x402 payments through a voice agent and recover access with a voice-based recovery flow — all from one AI-native protocol. Coming soon.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -249,7 +249,8 @@ function Hero() {
         >
           <Magnetic>
             <a href="#" className="btn-lime group flex items-center justify-center gap-2 uppercase">
-              Launch Voice Trading
+              Voice Trading
+              <SoonBadge />
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </Magnetic>
@@ -325,10 +326,10 @@ function VoiceTrading() {
         <Reveal>
           <div className="flex items-center gap-3">
             <span className="eyebrow">01 · Voice Over Trading</span>
-            <LiveBadge />
+            <SoonBadge />
           </div>
           <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
-            The world's first live voice-over trading protocol.
+            The world's first voice-over trading protocol.
           </h2>
           <p className="mt-6 text-muted-foreground max-w-lg leading-relaxed">
             Trade crypto naturally using your voice. Speak your trading intent, and Vozdex AI transforms natural language into secure on-chain transactions.
@@ -342,7 +343,7 @@ function VoiceTrading() {
           </div>
           <Magnetic>
             <a href="#" className="btn-lime mt-10 group">
-              Launch Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+              Voice Trading <SoonBadge /> <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
             </a>
           </Magnetic>
         </Reveal>
@@ -350,8 +351,8 @@ function VoiceTrading() {
         <Reveal x={30} className="relative">
           <div className="rounded-md border border-border bg-surface overflow-hidden">
             <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-surface-2">
-              <span className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground">voice intents · live</span>
-              <LiveBadge />
+              <span className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground">voice intents · coming soon</span>
+              <SoonBadge />
             </div>
             <div className="p-6 space-y-3">
               {examples.map((e, i) => (
@@ -819,7 +820,7 @@ function CTA() {
           The future of finance<br />is conversational.
         </Reveal>
         <Reveal delay={0.1} className="flex gap-3 flex-wrap">
-          <Magnetic><a href="#" className="btn-lime group">Launch Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" /></a></Magnetic>
+          <Magnetic><a href="#" className="btn-lime group">Voice Trading <SoonBadge /> <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" /></a></Magnetic>
 
         </Reveal>
       </div>
