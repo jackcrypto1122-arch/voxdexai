@@ -112,7 +112,7 @@ function Nav() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <a href="#roadmap" className="btn-ghost hidden sm:inline-flex">Roadmap</a>
+          <a href="https://vozdex.gitbook.io/vozdex-ai-whitepaper" className="btn-ghost hidden sm:inline-flex">WHITEPAPER</a>
           <Magnetic><a href="#" className="btn-lime group">Launch Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" /></a></Magnetic>
         </div>
       </div>
