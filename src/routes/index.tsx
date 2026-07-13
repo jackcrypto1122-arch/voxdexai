@@ -267,7 +267,7 @@ function Hero() {
 
 function ProductsIntro() {
   const items = [
-    { n: "01", t: "Voice Over Trading", s: "LIVE", d: "Speak trading intents. Execute on Robinhood Chain.", i: Mic },
+    { n: "01", t: "Voice Over Trading", s: "SOON", d: "Speak trading intents. Execute on Robinhood Chain.", i: Mic },
     { n: "02", t: "Private x402 Payments", s: "SOON", d: "Let a voice agent authorize private machine-native payments.", i: Lock },
     { n: "03", t: "Key Recovery", s: "SOON", d: "Recover access with voice verification and trusted contacts.", i: Shield },
   ];
@@ -662,7 +662,7 @@ function KeyRecovery() {
 
 function Roadmap() {
   const items = [
-    { n: "01", t: "Voice Over Trading", status: "live", d: "Available now on Robinhood Chain.", i: Mic },
+    { n: "01", t: "Voice Over Trading", status: "soon", d: "Coming soon to Robinhood Chain.", i: Mic },
     { n: "02", t: "Private x402 Payments", status: "soon", d: "Private voice-agent checkout for machine-native payments.", i: Lock },
     { n: "03", t: "Key Recovery", status: "soon", d: "Voice challenge plus trusted contacts for wallet recovery.", i: Shield },
   ];
@@ -763,8 +763,8 @@ function Impact() {
 
 function FAQ() {
   const faqs = [
-    { q: "What is Vozdex AI?", a: "Vozdex AI is the world's first live Voice-Over Trading Protocol. It combines AI, voice, and blockchain into one AI-native trading experience on Robinhood Chain." },
-    { q: "Which products are live today?", a: "Voice Over Trading is live now on Robinhood Chain. Private x402 Payments and Key Recovery are currently in development." },
+    { q: "What is Vozdex AI?", a: "Vozdex AI is the world's first Voice-Over Trading Protocol. It combines AI, voice, and blockchain into one AI-native trading experience on Robinhood Chain." },
+    { q: "Which products are coming?", a: "Voice Over Trading, Private x402 Payments, and Key Recovery are all currently in development and coming soon to Robinhood Chain." },
     { q: "How does voice trading work?", a: "Speak an intent like 'Swap 0.5 ETH to USDC'. The parser turns it into a structured swap, you review the live router quote, and sign in your own wallet." },
     { q: "Is my wallet ever custodial?", a: "Never. Every transaction is signed inside your wallet. Vozdex AI only builds calldata for the router." },
     { q: "What are Private x402 Payments?", a: "They let a voice agent initiate private machine-native payments on your behalf. You speak the intent, approve the request, and the destination service receives verifiable payment proof without a manual checkout experience." },
@@ -776,7 +776,7 @@ function FAQ() {
       <Reveal>
         <h2 className="font-serif text-4xl leading-tight">Have questions?<br /><span className="text-muted-foreground italic">Find answers.</span></h2>
         <p className="mt-4 text-sm text-muted-foreground">One protocol. Three products. Built for the future of conversational finance.</p>
-        <Magnetic><a href="#" className="btn-lime mt-6 group">Launch Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" /></a></Magnetic>
+        <Magnetic><a href="#" className="btn-lime mt-6 group">Voice Trading <SoonBadge /> <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" /></a></Magnetic>
       </Reveal>
       <div className="divide-y divide-border border-y border-border">
         {faqs.map((f, i) => (
