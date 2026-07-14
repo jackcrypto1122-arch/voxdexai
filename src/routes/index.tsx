@@ -109,7 +109,7 @@ function Nav() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <a href="https://vozdex.gitbook.io/vozdex-ai-whitepaper" className="btn-ghost hidden sm:inline-flex">WHITEPAPER</a>
+          <a href="https://whitepaper.vozdexai.com/" className="btn-ghost hidden sm:inline-flex">WHITEPAPER</a>
           <Magnetic><a href="#" className="btn-lime group hidden sm:inline-flex">Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" /></a></Magnetic>
           {/* Mobile hamburger */}
           <button
@@ -144,7 +144,7 @@ function Nav() {
                 </a>
               ))}
               <a
-                href="https://vozdex.gitbook.io/vozdex-ai-whitepaper"
+                href="https://whitepaper.vozdexai.com/"
                 onClick={() => setMobileOpen(false)}
                 className="py-3 px-3 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-surface transition-colors"
               >
@@ -245,7 +245,7 @@ function Hero() {
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </Magnetic>
-          <Magnetic strength={12}><a href="#" className="btn-ghost">Whitepaper</a></Magnetic>
+          <Magnetic strength={12}><a href="https://whitepaper.vozdexai.com/" className="btn-ghost">Whitepaper</a></Magnetic>
         </motion.div>
 
         <TradingTerminalPreview />
