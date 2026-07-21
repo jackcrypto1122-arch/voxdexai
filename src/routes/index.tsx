@@ -212,7 +212,7 @@ function TradingTerminalPreview() {
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(190,255,50,0.12),transparent_35%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_30%)] pointer-events-none" />
         <img
-          src="/dpp.png"
+          src="/dapp.png"
           alt="Vozdex AI — Voice Trading Terminal"
           className="relative w-full h-auto block"
         />
@@ -315,7 +315,7 @@ function ProductsIntro() {
 function VoiceTrading() {
   const examples = [
     "Swap 0.5 ETH to USDC",
-    "Buy $250 of BTC",
+    "Swap 5 ETH to CASHCAT",
     "Sell all my CASHCAT",
   ];
   const features = [
