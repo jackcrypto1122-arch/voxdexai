@@ -24,7 +24,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Vozdex AI — The World's First Voice-Over Trading Protocol" },
-      { name: "description", content: "Trade crypto with your voice on Robinhood Chain. Private x402 payments and voice-based key recovery are coming soon — one AI-native protocol for conversational finance." },
+      { name: "description", content: "Trade crypto with your voice on Robinhood Chain. Voice stock trading and private x402 payments are coming soon — one AI-native protocol for conversational finance." },
     ],
   }),
 });
@@ -69,9 +69,9 @@ function LiveBadge() {
 
 function Nav() {
   const links = [
-    { l: "Voice Trading", h: "#voice-trading" },
-    { l: "Private x402", h: "#private-payments" },
-    { l: "Recovery", h: "#key-recovery" },
+    { l: "Voice Trading + Privacy", h: "#voice-trading" },
+    { l: "Voice Stock Trading", h: "#key-recovery" },
+    { l: "Private x402 Payments", h: "#private-payments" },
     { l: "Roadmap", h: "#roadmap" },
   ];
   const { scrollY } = useScroll();
@@ -231,7 +231,7 @@ function Hero() {
           transition={{ delay: 0.1, duration: 0.6 }}
           className="inline-flex items-center gap-3 px-3 py-1 rounded-full border border-border text-xs font-mono tracking-widest uppercase text-muted-foreground bg-background/40 backdrop-blur"
         >
-          <span>Voice Trading · Robinhood Chain</span>
+          <span>Voice Trading + Privacy · Robinhood Chain</span>
         </motion.div>
         <h1 className="mt-8 font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.98] tracking-tight max-w-5xl mx-auto">
           <WordReveal text="The world's first" delay={0.15} />
@@ -248,7 +248,7 @@ function Hero() {
           transition={{ delay: 1.15, duration: 0.6 }}
           className="mt-6 max-w-xl mx-auto text-muted-foreground"
         >
-          Trade crypto with your voice on Robinhood Chain. Trigger private x402 payments through a voice agent and recover access with a voice-based recovery flow — all from one AI-native protocol. Coming soon.
+          Trade crypto with your voice on Robinhood Chain with privacy built into the flow. Trigger private x402 payments through a voice agent and route trading intent more discreetly through one AI-native protocol. Coming soon.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -275,9 +275,9 @@ function Hero() {
 
 function ProductsIntro() {
   const items = [
-    { n: "01", t: "Voice Over Trading", d: "Speak trading intents. Execute on Robinhood Chain.", i: Mic },
-    { n: "02", t: "Private x402 Payments", d: "Let a voice agent authorize private machine-native payments.", i: Lock },
-    { n: "03", t: "Key Recovery", d: "Recover access with voice verification and trusted contacts.", i: Shield },
+    { n: "01", t: "Voice Trading + Privacy", d: "Speak trading intents and route them through a more private onchain flow.", i: Mic },
+    { n: "02", t: "Voice Stock Trading", d: "Trade stock exposure by voice through private crypto rails.", i: Shield },
+    { n: "03", t: "Private x402 Payments", d: "Let a voice agent authorize private machine-native payments.", i: Lock },
   ];
   return (
     <section className="relative border-y border-border bg-[oklch(0.09_0.005_260)]">
@@ -321,6 +321,7 @@ function VoiceTrading() {
   const features = [
     "Natural Language Understanding",
     "Live Voice Execution",
+    "Private Intent Routing",
     "Wallet-Aware Transactions",
     "Smart DEX Routing",
     "Multi-Step Intent Parsing",
@@ -332,13 +333,13 @@ function VoiceTrading() {
       <div className="grid md:grid-cols-[1.1fr_1fr] gap-16 items-start">
         <Reveal>
           <div className="flex items-center gap-3">
-            <span className="eyebrow">01 · Voice Over Trading</span>
+            <span className="eyebrow">01 · Voice Trading + Privacy</span>
           </div>
           <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
-            The world's first voice-over trading protocol.
+            The world's first private voice-over trading protocol.
           </h2>
           <p className="mt-6 text-muted-foreground max-w-lg leading-relaxed">
-            Trade crypto naturally using your voice. Speak your trading intent, and Vozdex AI transforms natural language into secure on-chain transactions.
+            Trade crypto naturally using your voice while keeping more of your intent private. Speak your trading instruction, and Vozdex AI turns natural language into secure on-chain execution with a more discreet routing flow.
           </p>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-2">
             {features.map((f) => (
@@ -383,7 +384,7 @@ function VoiceTrading() {
   );
 }
 
-/* ---------- 02 Private x402 Payments ---------- */
+/* ---------- 03 Private x402 Payments ---------- */
 
 function PrivatePayments() {
   const howItWorks = [
@@ -527,7 +528,7 @@ function PrivatePayments() {
 
         <Reveal className="order-1 md:order-2">
           <div className="flex items-center gap-3">
-            <span className="eyebrow">02 · Private x402 Payments</span>
+            <span className="eyebrow">03 · Private x402 Payments</span>
           </div>
           <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
             Private x402 payment<br />
@@ -565,39 +566,39 @@ function PrivatePayments() {
   );
 }
 
-/* ---------- 03 Key Recovery ---------- */
+/* ---------- 02 Voice Stock Trading ---------- */
 
 function KeyRecovery() {
   const nodes = [
-    { x: 18, y: 34, label: "Voiceprint" },
-    { x: 50, y: 18, label: "Recovery" },
-    { x: 82, y: 36, label: "Contacts" },
-    { x: 30, y: 72, label: "Challenge" },
+    { x: 18, y: 34, label: "Voice" },
+    { x: 50, y: 18, label: "Privacy" },
+    { x: 82, y: 36, label: "Market" },
+    { x: 30, y: 72, label: "Crypto Rail" },
     { x: 72, y: 76, label: "Wallet" },
   ];
   const edges = [[0, 1], [1, 2], [1, 3], [1, 4], [3, 4], [2, 4]] as const;
   const factors = [
-    "Complete a spoken voice challenge to prove liveness.",
-    "Match the voiceprint as one recovery factor, not the only factor.",
-    "Request approvals from your trusted contacts.",
-    "Reconstruct access without relying on a 12-word seed phrase.",
+    "Say the stock move you want to make in natural language.",
+    "Route the trade through crypto rails with a private intent layer.",
+    "Approve the final order once from your wallet before execution.",
+    "Receive execution proof without exposing the full strategy publicly.",
   ];
   return (
     <section id="key-recovery" className="mx-auto max-w-7xl px-6 py-28 grid md:grid-cols-2 gap-16 items-center">
       <Reveal>
         <div className="flex items-center gap-3">
-          <span className="eyebrow">03 · Key Recovery</span>
+          <span className="eyebrow">02 · Voice Stock Trading</span>
         </div>
         <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
-          Voice-based recovery<br />
-          <span className="italic text-muted-foreground">that verifies it's really you.</span>
+          Voice-over stock trading<br />
+          <span className="italic text-muted-foreground">through crypto with privacy built in.</span>
         </h2>
         <p className="mt-6 text-muted-foreground max-w-lg leading-relaxed">
-          Recover wallet access through a voice challenge plus social recovery. Instead of putting everything on a 12-word phrase, the recovery flow combines biometric voiceprint checks with trusted contacts so identity and consent both matter.
+          Trade stock exposure using your voice while crypto rails handle the settlement path underneath. The flow keeps execution conversational, adds privacy around intent routing, and still gives you wallet-level approval before capital moves.
         </p>
 
         <div className="mt-6 grid grid-cols-2 gap-2 text-sm">
-          {["Voice challenge", "Voiceprint match", "Trusted contacts", "Social recovery", "Self-custodial restore", "No seed phrase dependency"].map((c) => (
+          {["Voice-first stock intents", "Crypto-backed routing", "Private order flow", "Wallet-approved execution", "Protected strategy details", "Fast settlement path"].map((c) => (
             <div key={c} className="flex items-center gap-2 text-muted-foreground">
               <CheckCircle2 className="h-4 w-4 text-lime shrink-0" /> {c}
             </div>
@@ -605,7 +606,7 @@ function KeyRecovery() {
         </div>
 
         <div className="mt-8 rounded-sm border border-border bg-surface p-5">
-          <div className="eyebrow">Recovery flow</div>
+          <div className="eyebrow">Private trade flow</div>
           <ul className="mt-3 space-y-1.5">
             {factors.map((s) => (
               <li key={s} className="text-sm text-muted-foreground font-mono">"{s}"</li>
@@ -617,7 +618,7 @@ function KeyRecovery() {
       <Reveal x={30} className="relative h-[460px] rounded-md border border-border bg-surface overflow-hidden">
         <div className="absolute inset-0 dot-bg opacity-30" />
         <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-          <span className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground">recovery graph</span>
+          <span className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground">privacy route</span>
         </div>
         <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full" preserveAspectRatio="none">
           {edges.map(([a, b], i) => {
@@ -647,7 +648,7 @@ function KeyRecovery() {
           </div>
         ))}
         <div className="absolute bottom-4 left-4 right-4 grid grid-cols-3 gap-2">
-          {[{ i: Mic, t: "Verify" }, { i: Network, t: "Confirm" }, { i: Shield, t: "Restore" }].map((x) => (
+          {[{ i: Mic, t: "Speak" }, { i: Network, t: "Route" }, { i: Shield, t: "Protect" }].map((x) => (
             <div key={x.t} className="rounded-sm border border-border bg-background/50 p-3 text-center">
               <x.i className="h-4 w-4 text-lime mx-auto" />
               <div className="mt-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{x.t}</div>
@@ -663,9 +664,9 @@ function KeyRecovery() {
 
 function Roadmap() {
   const items = [
-    { n: "01", t: "Voice Over Trading", d: "Voice trading on Robinhood Chain.", i: Mic },
-    { n: "02", t: "Private x402 Payments", d: "Private voice-agent checkout for machine-native payments.", i: Lock },
-    { n: "03", t: "Key Recovery", d: "Voice challenge plus trusted contacts for wallet recovery.", i: Shield },
+    { n: "01", t: "Voice Trading + Privacy", d: "Private voice-directed trading on Robinhood Chain.", i: Mic },
+    { n: "02", t: "Voice Stock Trading", d: "Private voice-routed stock exposure settled through crypto rails.", i: Shield },
+    { n: "03", t: "Private x402 Payments", d: "Private voice-agent checkout for machine-native payments.", i: Lock },
   ];
   return (
     <section id="roadmap" className="relative border-y border-border bg-[oklch(0.08_0.005_260)]">
@@ -764,11 +765,11 @@ function Impact() {
 function FAQ() {
   const faqs = [
     { q: "What is Vozdex AI?", a: "Vozdex AI is the world's first Voice-Over Trading Protocol. It combines AI, voice, and blockchain into one AI-native trading experience on Robinhood Chain." },
-    { q: "Which products are coming?", a: "Voice Over Trading, Private x402 Payments, and Key Recovery are all currently in development and coming soon to Robinhood Chain." },
+    { q: "Which products are coming?", a: "Voice Trading + Privacy, Voice Stock Trading, and Private x402 Payments are all currently in development and coming soon to Robinhood Chain." },
     { q: "How does voice trading work?", a: "Speak an intent like 'Swap 0.5 ETH to USDC'. The parser turns it into a structured swap, you review the live router quote, and sign in your own wallet." },
     { q: "Is my wallet ever custodial?", a: "Never. Every transaction is signed inside your wallet. Vozdex AI only builds calldata for the router." },
     { q: "What are Private x402 Payments?", a: "They let a voice agent initiate private machine-native payments on your behalf. You speak the intent, approve the request, and the destination service receives verifiable payment proof without a manual checkout experience." },
-    { q: "How does Key Recovery work?", a: "Key Recovery uses a voice challenge and voiceprint match as one social-recovery factor, alongside trusted contacts. The goal is to verify it is really you without making a 12-word seed phrase the only path back in." },
+    { q: "How does Voice Stock Trading work?", a: "Speak the stock exposure you want in natural language, route the trade through crypto rails with a private intent layer, and approve the final execution once from your wallet." },
   ];
   const [open, setOpen] = useState<number | null>(0);
   return (
@@ -832,7 +833,7 @@ function CTA() {
 
 function Footer() {
   const cols = [
-    { h: "Products", l: ["Voice Trading", "Private x402 Payments", "Key Recovery"] },
+    { h: "Products", l: ["Voice Trading + Privacy", "Voice Stock Trading", "Private x402 Payments"] },
     { h: "Protocol", l: ["Roadmap", "Docs", "Router API"] },
     { h: "Community", l: ["X", "TG"] },
   ];
@@ -885,8 +886,8 @@ function Landing() {
       <Hero />
       <ProductsIntro />
       <VoiceTrading />
-      <PrivatePayments />
       <KeyRecovery />
+      <PrivatePayments />
       <Roadmap />
       <Impact />
       <FAQ />
