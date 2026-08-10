@@ -849,7 +849,7 @@ function Footer() {
           </p>
           <div className="mt-4 flex items-center gap-2">
             <Radio className="h-3.5 w-3.5 text-lime" />
-            <span className="text-xs font-mono text-muted-foreground">Voice Trading live · x402 Payments & Recovery soon</span>
+            <span className="text-xs font-mono text-muted-foreground">Voice Trading · x402 Payments & Recovery</span>
           </div>
         </div>
         <div className="grid grid-cols-3 gap-8 text-sm">
