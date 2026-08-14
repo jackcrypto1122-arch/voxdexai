@@ -38,7 +38,7 @@ export function AnimatedBackground() {
               top: `${(i * 53) % 100}%`,
               animationDelay: `${(i % 10) * 0.6}s`,
               animationDuration: `${8 + (i % 6) * 2}s`,
-              opacity: 0.35 + ((i % 5) / 10),
+              opacity: 0.35 + (i % 5) / 10,
             }}
           />
         ))}

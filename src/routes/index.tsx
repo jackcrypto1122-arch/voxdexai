@@ -1,8 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowRight,
+  ArrowRightLeft,
   ArrowUpRight,
   CheckCircle2,
+  Clock,
+  Coins,
+  Droplets,
   Lock,
   Menu,
   Mic,
@@ -11,6 +15,8 @@ import {
   Plus,
   Radio,
   Shield,
+  TrendingUp,
+  Unlock,
   X,
   Zap,
 } from "lucide-react";
@@ -24,7 +30,11 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Vozdex AI — The World's First Voice-Over Trading Protocol" },
-      { name: "description", content: "Trade crypto with your voice on Robinhood Chain. Voice stock trading and private x402 payments are coming soon — one AI-native protocol for conversational finance." },
+      {
+        name: "description",
+        content:
+          "Trade crypto with your voice on Robinhood Chain. YieldShares, voice stock trading, and private x402 payments are coming soon — one AI-native protocol for conversational finance.",
+      },
     ],
   }),
 });
@@ -63,14 +73,13 @@ function LiveBadge() {
   );
 }
 
-
-
 /* ---------- Nav ---------- */
 
 function Nav() {
   const links = [
     { l: "Voice Trading + Privacy", h: "#voice-trading" },
     { l: "Voice Stock Trading", h: "#key-recovery" },
+    { l: "YieldShares", h: "#yield-shares" },
     { l: "Private x402 Payments", h: "#private-payments" },
     { l: "Roadmap", h: "#roadmap" },
   ];
@@ -111,15 +120,36 @@ function Nav() {
         <div className="flex items-center gap-2">
           {/* Social Icons */}
           <div className="hidden sm:flex items-center mr-2 gap-2">
-            <a href="https://x.com/VozDexAI" target="_blank" rel="noreferrer" className="flex items-center justify-center h-9 w-9 rounded-md border border-border bg-surface text-muted-foreground hover:text-foreground hover:bg-surface-2 transition-colors">
-              <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+            <a
+              href="https://x.com/VozDexAI"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center justify-center h-9 w-9 rounded-md border border-border bg-surface text-muted-foreground hover:text-foreground hover:bg-surface-2 transition-colors"
+            >
+              <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
             </a>
-            <a href="https://t.me/VozDexAI" target="_blank" rel="noreferrer" className="flex items-center justify-center h-9 w-9 rounded-md border border-border bg-surface text-muted-foreground hover:text-foreground hover:bg-surface-2 transition-colors">
-              <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current"><path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z" /></svg>
+            <a
+              href="https://t.me/VozDexAI"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center justify-center h-9 w-9 rounded-md border border-border bg-surface text-muted-foreground hover:text-foreground hover:bg-surface-2 transition-colors"
+            >
+              <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current">
+                <path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z" />
+              </svg>
             </a>
           </div>
-          <a href="https://whitepaper.vozdexai.com/" className="btn-ghost hidden sm:inline-flex">WHITEPAPER</a>
-          <Magnetic><a href="#" className="btn-lime group hidden sm:inline-flex">Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" /></a></Magnetic>
+          <a href="https://whitepaper.vozdexai.com/" className="btn-ghost hidden sm:inline-flex">
+            WHITEPAPER
+          </a>
+          <Magnetic>
+            <a href="#" className="btn-lime group hidden sm:inline-flex">
+              Voice Trading{" "}
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+            </a>
+          </Magnetic>
           {/* Mobile hamburger */}
           <button
             className="md:hidden flex items-center justify-center w-10 h-10 rounded-md border border-border bg-surface hover:bg-surface-2 transition-colors"
@@ -160,16 +190,35 @@ function Nav() {
                 Whitepaper
               </a>
               <div className="flex items-center gap-3 px-3 py-2">
-                <a href="https://x.com/VozDexAI" target="_blank" rel="noreferrer" className="flex items-center justify-center h-10 w-10 flex-1 rounded-md border border-border bg-surface text-muted-foreground hover:text-foreground hover:bg-surface-2 transition-colors">
-                  <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+                <a
+                  href="https://x.com/VozDexAI"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-center h-10 w-10 flex-1 rounded-md border border-border bg-surface text-muted-foreground hover:text-foreground hover:bg-surface-2 transition-colors"
+                >
+                  <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
                 </a>
-                <a href="https://t.me/VozDexAI" target="_blank" rel="noreferrer" className="flex items-center justify-center h-10 w-10 flex-1 rounded-md border border-border bg-surface text-muted-foreground hover:text-foreground hover:bg-surface-2 transition-colors">
-                  <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current"><path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z" /></svg>
+                <a
+                  href="https://t.me/VozDexAI"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-center h-10 w-10 flex-1 rounded-md border border-border bg-surface text-muted-foreground hover:text-foreground hover:bg-surface-2 transition-colors"
+                >
+                  <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current">
+                    <path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z" />
+                  </svg>
                 </a>
               </div>
               <div className="pt-3 mt-2 border-t border-border">
-                <a href="#" onClick={() => setMobileOpen(false)} className="btn-lime group w-full justify-center">
-                  Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                <a
+                  href="#"
+                  onClick={() => setMobileOpen(false)}
+                  className="btn-lime group w-full justify-center"
+                >
+                  Voice Trading{" "}
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                 </a>
               </div>
             </nav>
@@ -191,7 +240,12 @@ function VoiceWave() {
           key={i}
           className="block w-[3px] rounded-full bg-lime/80"
           animate={{ scaleY: [0.25, 1, 0.35, 0.8, 0.3] }}
-          transition={{ duration: 1.4 + (i % 5) * 0.2, repeat: Infinity, ease: "easeInOut", delay: (i % 7) * 0.08 }}
+          transition={{
+            duration: 1.4 + (i % 5) * 0.2,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: (i % 7) * 0.08,
+          }}
           style={{ height: "100%", transformOrigin: "bottom" }}
         />
       ))}
@@ -248,7 +302,9 @@ function Hero() {
           transition={{ delay: 1.15, duration: 0.6 }}
           className="mt-6 max-w-xl mx-auto text-muted-foreground"
         >
-          Trade crypto with your voice on Robinhood Chain with privacy built into the flow. Trigger private x402 payments through a voice agent and route trading intent more discreetly through one AI-native protocol. Coming soon.
+          Trade crypto with your voice on Robinhood Chain with privacy built into the flow. Trigger
+          private x402 payments through a voice agent and route trading intent more discreetly
+          through one AI-native protocol. Coming soon.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -262,7 +318,11 @@ function Hero() {
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </Magnetic>
-          <Magnetic strength={12}><a href="https://whitepaper.vozdexai.com/" className="btn-ghost">Whitepaper</a></Magnetic>
+          <Magnetic strength={12}>
+            <a href="https://whitepaper.vozdexai.com/" className="btn-ghost">
+              Whitepaper
+            </a>
+          </Magnetic>
         </motion.div>
 
         <TradingTerminalPreview />
@@ -275,26 +335,51 @@ function Hero() {
 
 function ProductsIntro() {
   const items = [
-    { n: "01", t: "Voice Trading + Privacy", d: "Speak trading intents and route them through a more private onchain flow.", i: Mic },
-    { n: "02", t: "Voice Stock Trading", d: "Trade stock exposure by voice through private crypto rails.", i: Shield },
-    { n: "03", t: "Private x402 Payments", d: "Let a voice agent authorize private machine-native payments.", i: Lock },
+    {
+      n: "01",
+      t: "Voice Trading + Privacy",
+      d: "Speak trading intents and route them through a more private onchain flow.",
+      i: Mic,
+    },
+    {
+      n: "02",
+      t: "Voice Stock Trading",
+      d: "Trade stock exposure by voice through private crypto rails.",
+      i: Shield,
+    },
+    {
+      n: "03",
+      t: "YieldShares",
+      d: "Turn your liquidity into a tradeable asset — like a stock, not a locked NFT position.",
+      i: Coins,
+    },
+    {
+      n: "04",
+      t: "Private x402 Payments",
+      d: "Let a voice agent authorize private machine-native payments.",
+      i: Lock,
+    },
   ];
   return (
     <section className="relative border-y border-border bg-[oklch(0.09_0.005_260)]">
       <div className="mx-auto max-w-7xl px-6 py-24">
         <div className="flex items-baseline justify-between mb-14 flex-wrap gap-4">
           <Reveal as="h2" className="font-serif text-4xl md:text-5xl max-w-3xl leading-tight">
-            Three products.<br />
+            Four products.
+            <br />
             <span className="text-muted-foreground italic">One AI-native protocol.</span>
           </Reveal>
           <span className="eyebrow">Core Products</span>
         </div>
-        <div className="grid md:grid-cols-3 gap-px bg-border">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
           {items.map((it, i) => (
             <Reveal key={it.t} delay={i * 0.08} className="bg-[oklch(0.09_0.005_260)] p-8">
               <TiltCard className="group relative">
                 <div className="flex items-center justify-between">
-                  <motion.div className="h-10 w-10 rounded-sm lime-panel grid place-items-center" whileHover={{ rotate: 8, scale: 1.08 }}>
+                  <motion.div
+                    className="h-10 w-10 rounded-sm lime-panel grid place-items-center"
+                    whileHover={{ rotate: 8, scale: 1.08 }}
+                  >
                     <it.i className="h-5 w-5" strokeWidth={2} />
                   </motion.div>
                 </div>
@@ -313,11 +398,7 @@ function ProductsIntro() {
 /* ---------- 01 Voice Trading ---------- */
 
 function VoiceTrading() {
-  const examples = [
-    "Swap 0.5 ETH to USDC",
-    "Swap 5 ETH to CASHCAT",
-    "Sell all my CASHCAT",
-  ];
+  const examples = ["Swap 0.5 ETH to USDC", "Swap 5 ETH to CASHCAT", "Sell all my CASHCAT"];
   const features = [
     "Natural Language Understanding",
     "Live Voice Execution",
@@ -339,7 +420,9 @@ function VoiceTrading() {
             The world's first private voice-over trading protocol.
           </h2>
           <p className="mt-6 text-muted-foreground max-w-lg leading-relaxed">
-            Trade crypto naturally using your voice while keeping more of your intent private. Speak your trading instruction, and Vozdex AI turns natural language into secure on-chain execution with a more discreet routing flow.
+            Trade crypto naturally using your voice while keeping more of your intent private. Speak
+            your trading instruction, and Vozdex AI turns natural language into secure on-chain
+            execution with a more discreet routing flow.
           </p>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-2">
             {features.map((f) => (
@@ -350,7 +433,8 @@ function VoiceTrading() {
           </div>
           <Magnetic>
             <a href="#" className="btn-lime mt-10 group">
-              Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+              Voice Trading{" "}
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
             </a>
           </Magnetic>
         </Reveal>
@@ -358,7 +442,9 @@ function VoiceTrading() {
         <Reveal x={30} className="relative">
           <div className="rounded-md border border-border bg-surface overflow-hidden">
             <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-surface-2">
-              <span className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground">voice intents</span>
+              <span className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground">
+                voice intents
+              </span>
             </div>
             <div className="p-6 space-y-3">
               {examples.map((e, i) => (
@@ -375,7 +461,6 @@ function VoiceTrading() {
                   <ArrowRight className="ml-auto h-3.5 w-3.5 text-muted-foreground group-hover:text-lime group-hover:translate-x-0.5 transition-all" />
                 </motion.div>
               ))}
-
             </div>
           </div>
         </Reveal>
@@ -384,7 +469,227 @@ function VoiceTrading() {
   );
 }
 
-/* ---------- 03 Private x402 Payments ---------- */
+/* ---------- 03 YieldShares ---------- */
+
+function YieldShares() {
+  const features = [
+    "Regular token pairs or tokenized stocks",
+    "Tradeable YieldShares coin",
+    "Flexible unlock or fixed-term lock",
+    "Automatic dividend payouts",
+    "Insurance reserve protection",
+    "Swap fee earnings for all depositors",
+    "Higher rewards for locked positions",
+    "No locked NFT positions",
+  ];
+  const depositSteps = [
+    { label: "Deposit", desc: "Provide liquidity", icon: Droplets },
+    { label: "Mint", desc: "Receive YieldShares", icon: Coins },
+    { label: "Choose", desc: "Lock or unlock", icon: Clock },
+  ];
+  return (
+    <section
+      id="yield-shares"
+      className="relative border-y border-border bg-[oklch(0.09_0.005_260)]"
+    >
+      <div className="mx-auto max-w-7xl px-6 py-28 grid md:grid-cols-2 gap-16 items-center">
+        <Reveal>
+          <div className="flex items-center gap-3">
+            <span className="eyebrow">03 · YieldShares</span>
+          </div>
+          <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
+            Turn liquidity into
+            <br />
+            <span className="italic text-muted-foreground">a tradeable asset.</span>
+          </h2>
+          <p className="mt-6 text-muted-foreground max-w-lg leading-relaxed">
+            Deposit liquidity into supported crypto token pairs or tokenized stocks pools and
+            receive YieldShares: a tradeable coin representing your share. Like owning stock in the
+            pool, not a locked NFT you can't move. Choose flexible unlock or lock for higher
+            rewards. Everyone earns swap fees, an insurance reserve guards against losses, and
+            dividends pay out automatically.
+          </p>
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-2">
+            {features.map((f) => (
+              <div key={f} className="flex items-center gap-2 text-sm text-muted-foreground">
+                <CheckCircle2 className="h-4 w-4 text-lime shrink-0" /> {f}
+              </div>
+            ))}
+          </div>
+          <Magnetic>
+            <a href="#" className="btn-lime mt-10 group">
+              Learn More{" "}
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+            </a>
+          </Magnetic>
+        </Reveal>
+
+        <Reveal x={30} className="relative">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(190,255,50,0.16),transparent_35%),radial-gradient(circle_at_30%_80%,rgba(190,255,50,0.08),transparent_32%)] blur-3xl" />
+          <div className="relative overflow-hidden rounded-[28px] border border-lime/15 bg-[#06080b] shadow-[0_30px_120px_rgba(186,255,61,0.12)]">
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),transparent_28%),radial-gradient(circle_at_top,rgba(190,255,50,0.12),transparent_38%)]" />
+
+            {/* Header */}
+            <div className="relative border-b border-white/6 px-5 py-4">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <div className="text-[9px] font-mono uppercase tracking-[0.32em] text-white/45">
+                    Liquidity console
+                  </div>
+                  <div className="mt-1 font-serif text-2xl text-white">YieldShares Flow</div>
+                </div>
+                <div className="grid h-11 w-11 place-items-center rounded-full bg-lime text-black shadow-[0_0_40px_rgba(186,255,61,0.28)]">
+                  <Coins className="h-5 w-5" strokeWidth={2.4} />
+                </div>
+              </div>
+            </div>
+
+            <div className="relative grid gap-4 p-5">
+              {/* Deposit flow steps */}
+              <div className="grid gap-3 sm:grid-cols-3">
+                {depositSteps.map((step, i) => (
+                  <motion.div
+                    key={step.label}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.12, duration: 0.5 }}
+                    className="rounded-2xl border border-white/8 bg-white/[0.03] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]"
+                  >
+                    <div className="flex items-center gap-2 text-[9px] font-mono uppercase tracking-[0.24em] text-white/40">
+                      <step.icon className="h-3.5 w-3.5 text-lime" />
+                      {step.label}
+                    </div>
+                    <div className="mt-3 text-sm text-white">{step.desc}</div>
+                    {i < depositSteps.length - 1 && (
+                      <div className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10"></div>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Lock vs Unlock modes */}
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div className="rounded-[24px] border border-white/8 bg-white/[0.03] p-5 overflow-hidden relative">
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-center gap-3 text-white">
+                      <div className="grid h-8 w-8 place-items-center rounded-full bg-lime/10 text-lime">
+                        <TrendingUp className="h-4 w-4" />
+                      </div>
+                      <span className="font-serif text-lg">Total value locked</span>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-2xl font-serif text-white">$5.90m</div>
+                    </div>
+                  </div>
+                  <div className="mt-1 flex items-center justify-between text-xs text-white/50">
+                    <span className="pl-11">Past 30 days</span>
+                    <span>Current</span>
+                  </div>
+                  <div className="mt-6 h-20 relative -mx-5 -mb-5">
+                    <svg viewBox="0 0 200 60" className="w-full h-full" preserveAspectRatio="none">
+                      <defs>
+                        <linearGradient id="tvl-gradient" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stopColor="oklch(0.92 0.22 125)" stopOpacity="0.2" />
+                          <stop offset="100%" stopColor="oklch(0.92 0.22 125)" stopOpacity="0" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        d="M0,50 L20,45 L40,48 L60,45 L80,47 L100,43 L120,44 L140,40 L160,38 L170,35 L180,20 L200,5"
+                        fill="none"
+                        stroke="oklch(0.92 0.22 125)"
+                        strokeWidth="1.5"
+                      />
+                      <path
+                        d="M0,50 L20,45 L40,48 L60,45 L80,47 L100,43 L120,44 L140,40 L160,38 L170,35 L180,20 L200,5 L200,60 L0,60 Z"
+                        fill="url(#tvl-gradient)"
+                      />
+                    </svg>
+                  </div>
+                </div>
+
+                <div className="rounded-[24px] border border-white/8 bg-white/[0.03] p-5 overflow-hidden relative">
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-center gap-3 text-white">
+                      <div className="grid h-8 w-8 place-items-center rounded-full bg-lime/10 text-lime">
+                        <ArrowRightLeft className="h-4 w-4" />
+                      </div>
+                      <span className="font-serif text-lg">Trading volume</span>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-2xl font-serif text-white">$121.65m</div>
+                    </div>
+                  </div>
+                  <div className="mt-1 flex items-center justify-between text-xs text-white/50">
+                    <span className="pl-11">Past 30 days</span>
+                    <span>30-day total</span>
+                  </div>
+                  <div className="mt-6 h-20 relative -mx-5 -mb-5">
+                    <svg viewBox="0 0 200 60" className="w-full h-full" preserveAspectRatio="none">
+                      <path
+                        d="M0,55 L10,40 L30,42 L50,40 L70,43 L90,48 L110,38 L130,45 L150,40 L170,45 L180,25 L190,5 L200,35"
+                        fill="none"
+                        stroke="oklch(0.92 0.22 125)"
+                        strokeWidth="1.5"
+                      />
+                      <path
+                        d="M0,55 L10,40 L30,42 L50,40 L70,43 L90,48 L110,38 L130,45 L150,40 L170,45 L180,25 L190,5 L200,35 L200,60 L0,60 Z"
+                        fill="url(#tvl-gradient)"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              {/* Rewards pipeline */}
+              <div className="rounded-[24px] border border-white/8 bg-black/35 p-4">
+                <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.24em] text-white/45">
+                  <TrendingUp className="h-3.5 w-3.5 text-lime" />
+                  Rewards pipeline
+                </div>
+                <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                  {[
+                    { label: "Swap Fees", value: "Earned by all depositors", pulse: true },
+                    {
+                      label: "Insurance Reserve",
+                      value: "Protects against big losses",
+                      pulse: false,
+                    },
+                    { label: "Auto-Dividends", value: "Paid out automatically", pulse: true },
+                  ].map((r, i) => (
+                    <motion.div
+                      key={r.label}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
+                      className="rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-3"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="text-[9px] font-mono uppercase tracking-[0.18em] text-white/45">
+                          {r.label}
+                        </span>
+                        {r.pulse && (
+                          <span className="relative flex h-1.5 w-1.5">
+                            <span className="absolute inline-flex h-full w-full rounded-full bg-lime opacity-75 animate-ping" />
+                            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-lime" />
+                          </span>
+                        )}
+                      </div>
+                      <div className="mt-2 text-sm text-white">{r.value}</div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- 04 Private x402 Payments ---------- */
 
 function PrivatePayments() {
   const howItWorks = [
@@ -405,7 +710,10 @@ function PrivatePayments() {
     { label: "Settlement", value: "Private x402 proof attached", icon: Zap },
   ];
   return (
-    <section id="private-payments" className="relative border-y border-border bg-[oklch(0.09_0.005_260)]">
+    <section
+      id="private-payments"
+      className="relative border-y border-border bg-[oklch(0.09_0.005_260)]"
+    >
       <div className="mx-auto max-w-7xl px-6 py-28 grid md:grid-cols-2 gap-16 items-center">
         <Reveal x={-30} className="relative order-2 md:order-1">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(190,255,50,0.16),transparent_35%),radial-gradient(circle_at_70%_80%,rgba(190,255,50,0.08),transparent_32%)] blur-3xl" />
@@ -417,7 +725,9 @@ function PrivatePayments() {
                   <div className="text-[9px] font-mono uppercase tracking-[0.32em] text-white/45">
                     Private checkout console
                   </div>
-                  <div className="mt-1 font-serif text-2xl text-white">Voice-authorized payment flow</div>
+                  <div className="mt-1 font-serif text-2xl text-white">
+                    Voice-authorized payment flow
+                  </div>
                 </div>
               </div>
             </div>
@@ -487,7 +797,9 @@ function PrivatePayments() {
                         key={label}
                         className="flex items-center justify-between gap-4 rounded-2xl border border-white/8 bg-black/35 px-4 py-3"
                       >
-                        <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-white/45">{label}</span>
+                        <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-white/45">
+                          {label}
+                        </span>
                         <span className="text-right text-sm text-white">{value}</span>
                       </div>
                     ))}
@@ -512,7 +824,9 @@ function PrivatePayments() {
                     ))}
                   </div>
                   <div className="mt-5 rounded-2xl border border-white/8 bg-black/35 px-4 py-3">
-                    <div className="text-[9px] font-mono uppercase tracking-[0.2em] text-white/40">Intent status</div>
+                    <div className="text-[9px] font-mono uppercase tracking-[0.2em] text-white/40">
+                      Intent status
+                    </div>
                     <div className="mt-2 flex items-center justify-between">
                       <span className="text-sm text-white">Ready for one-tap approval</span>
                       <span className="rounded-full border border-lime/30 bg-lime/10 px-2.5 py-1 text-[9px] font-mono uppercase tracking-[0.2em] text-lime">
@@ -528,14 +842,17 @@ function PrivatePayments() {
 
         <Reveal className="order-1 md:order-2">
           <div className="flex items-center gap-3">
-            <span className="eyebrow">03 · Private x402 Payments</span>
+            <span className="eyebrow">04 · Private x402 Payments</span>
           </div>
           <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
-            Private x402 payment<br />
+            Private x402 payment
+            <br />
             <span className="italic text-muted-foreground">through a voice agent.</span>
           </h2>
           <p className="mt-6 text-muted-foreground max-w-lg leading-relaxed">
-            Let your voice agent handle machine-native checkout. You speak the payment request, the agent prepares the x402 authorization, and the receiving service gets cryptographic proof of payment without turning the flow into a clunky manual wallet ritual.
+            Let your voice agent handle machine-native checkout. You speak the payment request, the
+            agent prepares the x402 authorization, and the receiving service gets cryptographic
+            proof of payment without turning the flow into a clunky manual wallet ritual.
           </p>
 
           <div className="mt-8 grid gap-4">
@@ -545,7 +862,9 @@ function PrivatePayments() {
               </div>
               <ul className="mt-3 space-y-1.5">
                 {howItWorks.slice(0, 3).map((e) => (
-                  <li key={e} className="text-sm text-muted-foreground font-mono">"{e}"</li>
+                  <li key={e} className="text-sm text-muted-foreground font-mono">
+                    "{e}"
+                  </li>
                 ))}
               </ul>
             </div>
@@ -555,7 +874,9 @@ function PrivatePayments() {
               </div>
               <ul className="mt-3 space-y-1.5">
                 {whyItMatters.slice(0, 3).map((e) => (
-                  <li key={e} className="text-sm text-muted-foreground font-mono">"{e}"</li>
+                  <li key={e} className="text-sm text-muted-foreground font-mono">
+                    "{e}"
+                  </li>
                 ))}
               </ul>
             </div>
@@ -576,7 +897,14 @@ function KeyRecovery() {
     { x: 30, y: 72, label: "Crypto Rail" },
     { x: 72, y: 76, label: "Wallet" },
   ];
-  const edges = [[0, 1], [1, 2], [1, 3], [1, 4], [3, 4], [2, 4]] as const;
+  const edges = [
+    [0, 1],
+    [1, 2],
+    [1, 3],
+    [1, 4],
+    [3, 4],
+    [2, 4],
+  ] as const;
   const factors = [
     "Say the stock move you want to make in natural language.",
     "Route the trade through crypto rails with a private intent layer.",
@@ -584,21 +912,36 @@ function KeyRecovery() {
     "Receive execution proof without exposing the full strategy publicly.",
   ];
   return (
-    <section id="key-recovery" className="mx-auto max-w-7xl px-6 py-28 grid md:grid-cols-2 gap-16 items-center">
+    <section
+      id="key-recovery"
+      className="mx-auto max-w-7xl px-6 py-28 grid md:grid-cols-2 gap-16 items-center"
+    >
       <Reveal>
         <div className="flex items-center gap-3">
           <span className="eyebrow">02 · Voice Stock Trading</span>
         </div>
         <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
-          Voice-over stock trading<br />
-          <span className="italic text-muted-foreground">through crypto with privacy built in.</span>
+          Voice-over stock trading
+          <br />
+          <span className="italic text-muted-foreground">
+            through crypto with privacy built in.
+          </span>
         </h2>
         <p className="mt-6 text-muted-foreground max-w-lg leading-relaxed">
-          Trade stock exposure using your voice while crypto rails handle the settlement path underneath. The flow keeps execution conversational, adds privacy around intent routing, and still gives you wallet-level approval before capital moves.
+          Trade stock exposure using your voice while crypto rails handle the settlement path
+          underneath. The flow keeps execution conversational, adds privacy around intent routing,
+          and still gives you wallet-level approval before capital moves.
         </p>
 
         <div className="mt-6 grid grid-cols-2 gap-2 text-sm">
-          {["Voice-first stock intents", "Crypto-backed routing", "Private order flow", "Wallet-approved execution", "Protected strategy details", "Fast settlement path"].map((c) => (
+          {[
+            "Voice-first stock intents",
+            "Crypto-backed routing",
+            "Private order flow",
+            "Wallet-approved execution",
+            "Protected strategy details",
+            "Fast settlement path",
+          ].map((c) => (
             <div key={c} className="flex items-center gap-2 text-muted-foreground">
               <CheckCircle2 className="h-4 w-4 text-lime shrink-0" /> {c}
             </div>
@@ -609,49 +952,88 @@ function KeyRecovery() {
           <div className="eyebrow">Private trade flow</div>
           <ul className="mt-3 space-y-1.5">
             {factors.map((s) => (
-              <li key={s} className="text-sm text-muted-foreground font-mono">"{s}"</li>
+              <li key={s} className="text-sm text-muted-foreground font-mono">
+                "{s}"
+              </li>
             ))}
           </ul>
         </div>
       </Reveal>
 
-      <Reveal x={30} className="relative h-[460px] rounded-md border border-border bg-surface overflow-hidden">
+      <Reveal
+        x={30}
+        className="relative h-[460px] rounded-md border border-border bg-surface overflow-hidden"
+      >
         <div className="absolute inset-0 dot-bg opacity-30" />
         <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-          <span className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground">privacy route</span>
+          <span className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground">
+            privacy route
+          </span>
         </div>
-        <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full" preserveAspectRatio="none">
+        <svg
+          viewBox="0 0 100 100"
+          className="absolute inset-0 h-full w-full"
+          preserveAspectRatio="none"
+        >
           {edges.map(([a, b], i) => {
-            const A = nodes[a], B = nodes[b];
+            const A = nodes[a],
+              B = nodes[b];
             return (
               <g key={i}>
-                <line x1={A.x} y1={A.y} x2={B.x} y2={B.y} stroke="oklch(0.92 0.22 125 / 0.25)" strokeWidth="0.3" />
+                <line
+                  x1={A.x}
+                  y1={A.y}
+                  x2={B.x}
+                  y2={B.y}
+                  stroke="oklch(0.92 0.22 125 / 0.25)"
+                  strokeWidth="0.3"
+                />
                 <motion.circle
                   r="0.6"
                   fill="oklch(0.95 0.24 128)"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: [0, 1, 0], cx: [A.x, B.x], cy: [A.y, B.y] }}
-                  transition={{ duration: 2.2, delay: i * 0.35, repeat: Infinity, ease: "easeInOut" }}
+                  transition={{
+                    duration: 2.2,
+                    delay: i * 0.35,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                 />
               </g>
             );
           })}
         </svg>
         {nodes.map((n, i) => (
-          <div key={i} className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1" style={{ left: `${n.x}%`, top: `${n.y}%` }}>
+          <div
+            key={i}
+            className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1"
+            style={{ left: `${n.x}%`, top: `${n.y}%` }}
+          >
             <motion.div
               className="h-3 w-3 rounded-full bg-lime shadow-[0_0_16px_2px_oklch(0.92_0.22_125/_0.9)]"
               animate={{ scale: [1, 1.4, 1] }}
               transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
             />
-            <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{n.label}</span>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+              {n.label}
+            </span>
           </div>
         ))}
         <div className="absolute bottom-4 left-4 right-4 grid grid-cols-3 gap-2">
-          {[{ i: Mic, t: "Speak" }, { i: Network, t: "Route" }, { i: Shield, t: "Protect" }].map((x) => (
-            <div key={x.t} className="rounded-sm border border-border bg-background/50 p-3 text-center">
+          {[
+            { i: Mic, t: "Speak" },
+            { i: Network, t: "Route" },
+            { i: Shield, t: "Protect" },
+          ].map((x) => (
+            <div
+              key={x.t}
+              className="rounded-sm border border-border bg-background/50 p-3 text-center"
+            >
               <x.i className="h-4 w-4 text-lime mx-auto" />
-              <div className="mt-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{x.t}</div>
+              <div className="mt-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                {x.t}
+              </div>
             </div>
           ))}
         </div>
@@ -664,16 +1046,38 @@ function KeyRecovery() {
 
 function Roadmap() {
   const items = [
-    { n: "01", t: "Voice Trading + Privacy", d: "Private voice-directed trading on Robinhood Chain.", i: Mic },
-    { n: "02", t: "Voice Stock Trading", d: "Private voice-routed stock exposure settled through crypto rails.", i: Shield },
-    { n: "03", t: "Private x402 Payments", d: "Private voice-agent checkout for machine-native payments.", i: Lock },
+    {
+      n: "01",
+      t: "Voice Trading + Privacy",
+      d: "Private voice-directed trading on Robinhood Chain.",
+      i: Mic,
+    },
+    {
+      n: "02",
+      t: "Voice Stock Trading",
+      d: "Private voice-routed stock exposure settled through crypto rails.",
+      i: Shield,
+    },
+    {
+      n: "03",
+      t: "YieldShares",
+      d: "Tradeable liquidity shares with auto-dividends and insurance protection.",
+      i: Coins,
+    },
+    {
+      n: "04",
+      t: "Private x402 Payments",
+      d: "Private voice-agent checkout for machine-native payments.",
+      i: Lock,
+    },
   ];
   return (
     <section id="roadmap" className="relative border-y border-border bg-[oklch(0.08_0.005_260)]">
       <div className="mx-auto max-w-7xl px-6 py-28">
         <div className="flex items-baseline justify-between mb-14 flex-wrap gap-4">
           <Reveal as="h2" className="font-serif text-4xl md:text-5xl max-w-2xl leading-tight">
-            Platform status.<br />
+            Platform status.
+            <br />
             <span className="text-muted-foreground italic">The road ahead.</span>
           </Reveal>
           <span className="eyebrow">Roadmap</span>
@@ -688,9 +1092,9 @@ function Roadmap() {
             viewport={{ once: true }}
             transition={{ duration: 1.4, ease: "easeInOut" }}
             className="absolute left-0 top-8 h-px bg-lime origin-left hidden md:block"
-            style={{ width: "33%" }}
+            style={{ width: "25%" }}
           />
-          <div className="grid md:grid-cols-3 gap-8 md:gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6">
             {items.map((it, i) => (
               <Reveal key={it.t} delay={i * 0.12} className="relative">
                 <div className="flex items-center gap-3">
@@ -724,10 +1128,12 @@ function Impact() {
         <Reveal className="rounded-md border border-border bg-surface p-10">
           <div className="eyebrow">Live Quote Latency</div>
           <div className="mt-6 font-serif text-7xl text-lime">
-            <CountUp to={42} /><span className="text-3xl text-muted-foreground">ms</span>
+            <CountUp to={42} />
+            <span className="text-3xl text-muted-foreground">ms</span>
           </div>
           <p className="mt-4 text-sm text-muted-foreground max-w-sm">
-            Direct Quoter contract reads over a co-located RPC. No middleware, no aggregator round trips.
+            Direct Quoter contract reads over a co-located RPC. No middleware, no aggregator round
+            trips.
           </p>
           <div className="mt-8 h-24 relative overflow-hidden rounded-sm border border-border">
             <svg viewBox="0 0 400 100" className="w-full h-full" preserveAspectRatio="none">
@@ -741,12 +1147,17 @@ function Impact() {
                 viewport={{ once: true }}
                 transition={{ duration: 1.6, ease: "easeInOut" }}
               />
-              <path d="M0,80 L40,70 L80,72 L120,55 L160,60 L200,40 L240,50 L280,30 L320,35 L360,15 L400,20 L400,100 L0,100 Z" fill="oklch(0.92 0.22 125 / 0.15)" />
+              <path
+                d="M0,80 L40,70 L80,72 L120,55 L160,60 L200,40 L240,50 L280,30 L320,35 L360,15 L400,20 L400,100 L0,100 Z"
+                fill="oklch(0.92 0.22 125 / 0.15)"
+              />
             </svg>
           </div>
         </Reveal>
         <Reveal delay={0.1} className="rounded-md border border-border p-10 lime-panel">
-          <div className="font-mono text-xs tracking-widest uppercase opacity-70">On-chain settlement</div>
+          <div className="font-mono text-xs tracking-widest uppercase opacity-70">
+            On-chain settlement
+          </div>
           <h3 className="mt-6 font-serif text-4xl leading-tight">
             Every swap is a signed router call — nothing custodial, nothing off-chain.
           </h3>
@@ -764,27 +1175,69 @@ function Impact() {
 
 function FAQ() {
   const faqs = [
-    { q: "What is Vozdex AI?", a: "Vozdex AI is the world's first Voice-Over Trading Protocol. It combines AI, voice, and blockchain into one AI-native trading experience on Robinhood Chain." },
-    { q: "Which products are coming?", a: "Voice Trading + Privacy, Voice Stock Trading, and Private x402 Payments are all currently in development and coming soon to Robinhood Chain." },
-    { q: "How does voice trading work?", a: "Speak an intent like 'Swap 0.5 ETH to USDC'. The parser turns it into a structured swap, you review the live router quote, and sign in your own wallet." },
-    { q: "Is my wallet ever custodial?", a: "Never. Every transaction is signed inside your wallet. Vozdex AI only builds calldata for the router." },
-    { q: "What are Private x402 Payments?", a: "They let a voice agent initiate private machine-native payments on your behalf. You speak the intent, approve the request, and the destination service receives verifiable payment proof without a manual checkout experience." },
-    { q: "How does Voice Stock Trading work?", a: "Speak the stock exposure you want in natural language, route the trade through crypto rails with a private intent layer, and approve the final execution once from your wallet." },
+    {
+      q: "What is Vozdex AI?",
+      a: "Vozdex AI is the world's first Voice-Over Trading Protocol. It combines AI, voice, and blockchain into one AI-native trading experience on Robinhood Chain.",
+    },
+    {
+      q: "Which products are coming?",
+      a: "Voice Trading + Privacy, Voice Stock Trading, YieldShares, and Private x402 Payments are all currently in development and coming soon to Robinhood Chain.",
+    },
+    {
+      q: "How does voice trading work?",
+      a: "Speak an intent like 'Swap 0.5 ETH to USDC'. The parser turns it into a structured swap, you review the live router quote, and sign in your own wallet.",
+    },
+    {
+      q: "Is my wallet ever custodial?",
+      a: "Never. Every transaction is signed inside your wallet. Vozdex AI only builds calldata for the router.",
+    },
+    {
+      q: "What are Private x402 Payments?",
+      a: "They let a voice agent initiate private machine-native payments on your behalf. You speak the intent, approve the request, and the destination service receives verifiable payment proof without a manual checkout experience.",
+    },
+    {
+      q: "How does Voice Stock Trading work?",
+      a: "Speak the stock exposure you want in natural language, route the trade through crypto rails with a private intent layer, and approve the final execution once from your wallet.",
+    },
+    {
+      q: "What are YieldShares?",
+      a: "YieldShares are tradeable coins that represent your share of deposited liquidity. Instead of locking your position as an NFT, you get a fungible token you can trade, transfer, or hold while still earning swap fees and auto-dividends.",
+    },
+    {
+      q: "What's the difference between locked and unlocked YieldShares?",
+      a: "Unlocked YieldShares let you withdraw anytime with standard rewards. Locked YieldShares commit your liquidity for a set period but earn higher reward multipliers and bonus dividends.",
+    },
   ];
   const [open, setOpen] = useState<number | null>(0);
   return (
     <section className="mx-auto max-w-7xl px-6 py-28 grid md:grid-cols-[1fr_2fr] gap-16">
       <Reveal>
-        <h2 className="font-serif text-4xl leading-tight">Have questions?<br /><span className="text-muted-foreground italic">Find answers.</span></h2>
-        <p className="mt-4 text-sm text-muted-foreground">One protocol. Three products. Built for the future of conversational finance.</p>
-        <Magnetic><a href="#" className="btn-lime mt-6 group">Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" /></a></Magnetic>
+        <h2 className="font-serif text-4xl leading-tight">
+          Have questions?
+          <br />
+          <span className="text-muted-foreground italic">Find answers.</span>
+        </h2>
+        <p className="mt-4 text-sm text-muted-foreground">
+          One protocol. Four products. Built for the future of conversational finance.
+        </p>
+        <Magnetic>
+          <a href="#" className="btn-lime mt-6 group">
+            Voice Trading{" "}
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+          </a>
+        </Magnetic>
       </Reveal>
       <div className="divide-y divide-border border-y border-border">
         {faqs.map((f, i) => (
           <Reveal key={f.q} delay={i * 0.05}>
-            <button onClick={() => setOpen(open === i ? null : i)} className="w-full text-left py-6 flex items-start justify-between gap-6 group">
+            <button
+              onClick={() => setOpen(open === i ? null : i)}
+              className="w-full text-left py-6 flex items-start justify-between gap-6 group"
+            >
               <div className="flex-1">
-                <div className="font-serif text-xl group-hover:text-lime transition-colors">{f.q}</div>
+                <div className="font-serif text-xl group-hover:text-lime transition-colors">
+                  {f.q}
+                </div>
                 <AnimatePresence initial={false}>
                   {open === i && (
                     <motion.p
@@ -799,7 +1252,10 @@ function FAQ() {
                   )}
                 </AnimatePresence>
               </div>
-              <motion.div animate={{ rotate: open === i ? 180 : 0 }} className="mt-1 text-lime shrink-0">
+              <motion.div
+                animate={{ rotate: open === i ? 180 : 0 }}
+                className="mt-1 text-lime shrink-0"
+              >
                 {open === i ? <Minus className="h-5 w-5" /> : <Plus className="h-5 w-5" />}
               </motion.div>
             </button>
@@ -818,11 +1274,17 @@ function CTA() {
       <div className="absolute inset-0 dot-bg opacity-20" />
       <div className="mx-auto max-w-7xl px-6 py-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative">
         <Reveal as="h2" className="font-serif text-4xl md:text-5xl max-w-xl leading-tight">
-          The future of finance<br />is conversational.
+          The future of finance
+          <br />
+          is conversational.
         </Reveal>
         <Reveal delay={0.1} className="flex gap-3 flex-wrap">
-          <Magnetic><a href="#" className="btn-lime group">Voice Trading <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" /></a></Magnetic>
-
+          <Magnetic>
+            <a href="#" className="btn-lime group">
+              Voice Trading{" "}
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+            </a>
+          </Magnetic>
         </Reveal>
       </div>
     </section>
@@ -833,7 +1295,10 @@ function CTA() {
 
 function Footer() {
   const cols = [
-    { h: "Products", l: ["Voice Trading + Privacy", "Voice Stock Trading", "Private x402 Payments"] },
+    {
+      h: "Products",
+      l: ["Voice Trading + Privacy", "Voice Stock Trading", "YieldShares", "Private x402 Payments"],
+    },
     { h: "Protocol", l: ["Roadmap", "Docs", "Router API"] },
     { h: "Community", l: ["X", "TG"] },
   ];
@@ -849,7 +1314,9 @@ function Footer() {
           </p>
           <div className="mt-4 flex items-center gap-2">
             <Radio className="h-3.5 w-3.5 text-lime" />
-            <span className="text-xs font-mono text-muted-foreground">Voice Trading · x402 Payments & Recovery</span>
+            <span className="text-xs font-mono text-muted-foreground">
+              Voice Trading · x402 Payments & Recovery
+            </span>
           </div>
         </div>
         <div className="grid grid-cols-3 gap-8 text-sm">
@@ -858,7 +1325,14 @@ function Footer() {
               <div className="eyebrow">{c.h}</div>
               <ul className="mt-4 space-y-2">
                 {c.l.map((x) => (
-                  <li key={x}><a href="#" className="text-muted-foreground hover:text-foreground transition-colors story-link">{x}</a></li>
+                  <li key={x}>
+                    <a
+                      href="#"
+                      className="text-muted-foreground hover:text-foreground transition-colors story-link"
+                    >
+                      {x}
+                    </a>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -880,13 +1354,19 @@ function Landing() {
     document.documentElement.style.scrollBehavior = "smooth";
   }, []);
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }} className="min-h-screen bg-background relative">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className="min-h-screen bg-background relative"
+    >
       <AnimatedBackground />
       <Nav />
       <Hero />
       <ProductsIntro />
       <VoiceTrading />
       <KeyRecovery />
+      <YieldShares />
       <PrivatePayments />
       <Roadmap />
       <Impact />

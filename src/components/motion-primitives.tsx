@@ -1,4 +1,11 @@
-import { motion, useInView, useMotionValue, useSpring, useTransform, useReducedMotion } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  useReducedMotion,
+} from "framer-motion";
 import { useEffect, useRef, type ReactNode, type CSSProperties } from "react";
 
 /* -------- Reveal on scroll -------- */
@@ -37,7 +44,15 @@ export function Reveal({
 }
 
 /* -------- Word-by-word reveal for headlines -------- */
-export function WordReveal({ text, className, delay = 0 }: { text: string; className?: string; delay?: number }) {
+export function WordReveal({
+  text,
+  className,
+  delay = 0,
+}: {
+  text: string;
+  className?: string;
+  delay?: number;
+}) {
   const reduce = useReducedMotion();
   const words = text.split(" ");
   return (
@@ -73,8 +88,10 @@ export function TiltCard({
   const ry = useSpring(useMotionValue(0), { stiffness: 150, damping: 15 });
   const gx = useMotionValue(50);
   const gy = useMotionValue(50);
-  const bg = useTransform([gx, gy], ([x, y]) =>
-    `radial-gradient(360px circle at ${x}% ${y}%, oklch(0.92 0.22 125 / 0.14), transparent 60%)`
+  const bg = useTransform(
+    [gx, gy],
+    ([x, y]) =>
+      `radial-gradient(360px circle at ${x}% ${y}%, oklch(0.92 0.22 125 / 0.14), transparent 60%)`,
   );
 
   const onMove = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -144,11 +161,23 @@ export function CountUp({
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [inView, to, duration, decimals, prefix, suffix]);
-  return <span ref={ref}>{prefix}0{suffix}</span>;
+  return (
+    <span ref={ref}>
+      {prefix}0{suffix}
+    </span>
+  );
 }
 
 /* -------- Magnetic button wrapper -------- */
-export function Magnetic({ children, className, strength = 18 }: { children: ReactNode; className?: string; strength?: number }) {
+export function Magnetic({
+  children,
+  className,
+  strength = 18,
+}: {
+  children: ReactNode;
+  className?: string;
+  strength?: number;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const x = useSpring(useMotionValue(0), { stiffness: 200, damping: 15 });
   const y = useSpring(useMotionValue(0), { stiffness: 200, damping: 15 });
@@ -159,7 +188,10 @@ export function Magnetic({ children, className, strength = 18 }: { children: Rea
     x.set(((e.clientX - r.left) / r.width - 0.5) * strength);
     y.set(((e.clientY - r.top) / r.height - 0.5) * strength);
   };
-  const onLeave = () => { x.set(0); y.set(0); };
+  const onLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
   return (
     <motion.div
       ref={ref}

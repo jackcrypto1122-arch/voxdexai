@@ -74,14 +74,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Vozdex AI — Voice Trading Protocol on Robinhood Chain" },
-      { name: "description", content: "Voice-assisted trading terminal on Robinhood Chain. Live wallet, market, and quote flows with direct Uniswap-style router execution." },
+      {
+        name: "description",
+        content:
+          "Voice-assisted trading terminal on Robinhood Chain. Live wallet, market, and quote flows with direct Uniswap-style router execution.",
+      },
       { name: "author", content: "Vozdex AI" },
       { property: "og:title", content: "Vozdex AI — Voice Trading Protocol" },
-      { property: "og:description", content: "Voice-assisted trading terminal on Robinhood Chain." },
+      {
+        property: "og:description",
+        content: "Voice-assisted trading terminal on Robinhood Chain.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Vozdex AI — Voice Trading Protocol" },
-      { name: "twitter:description", content: "Voice-assisted trading terminal on Robinhood Chain." },
+      {
+        name: "twitter:description",
+        content: "Voice-assisted trading terminal on Robinhood Chain.",
+      },
     ],
     links: [
       {
