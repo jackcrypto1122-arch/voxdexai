@@ -141,9 +141,7 @@ function Nav() {
               </svg>
             </a>
           </div>
-          <a href="https://whitepaper.vozdexai.com/" className="btn-ghost hidden sm:inline-flex">
-            WHITEPAPER
-          </a>
+
           <Magnetic>
             <a href="#" className="btn-lime group hidden sm:inline-flex">
               Voice Trading{" "}
@@ -182,13 +180,7 @@ function Nav() {
                   {l.l}
                 </a>
               ))}
-              <a
-                href="https://whitepaper.vozdexai.com/"
-                onClick={() => setMobileOpen(false)}
-                className="py-3 px-3 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-surface transition-colors"
-              >
-                Whitepaper
-              </a>
+
               <div className="flex items-center gap-3 px-3 py-2">
                 <a
                   href="https://x.com/VozDexAI"
@@ -302,9 +294,9 @@ function Hero() {
           transition={{ delay: 1.15, duration: 0.6 }}
           className="mt-6 max-w-xl mx-auto text-muted-foreground"
         >
-          Trade crypto with your voice on Robinhood Chain with privacy built into the flow. Trigger
-          private x402 payments through a voice agent and route trading intent more discreetly
-          through one AI-native protocol. Coming soon.
+          Trade crypto with your voice on Robinhood Chain with privacy built into the flow. Deposit
+          liquidity into YieldShares, trigger private x402 payments through a voice agent, and route
+          trading intent more discreetly through one AI-native protocol. Coming soon.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -316,11 +308,6 @@ function Hero() {
             <a href="#" className="btn-lime group flex items-center justify-center gap-2 uppercase">
               Voice Trading
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
-          </Magnetic>
-          <Magnetic strength={12}>
-            <a href="https://whitepaper.vozdexai.com/" className="btn-ghost">
-              Whitepaper
             </a>
           </Magnetic>
         </motion.div>
@@ -350,7 +337,7 @@ function ProductsIntro() {
     {
       n: "03",
       t: "YieldShares",
-      d: "Turn your liquidity into a tradeable asset — like a stock, not a locked NFT position.",
+      d: "Turn your liquidity into a tradeable asset like a stock, not a locked NFT position.",
       i: Coins,
     },
     {
