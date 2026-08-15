@@ -77,9 +77,9 @@ function LiveBadge() {
 
 function Nav() {
   const links = [
+    { l: "YieldShares", h: "#yield-shares" },
     { l: "Voice Trading + Privacy", h: "#voice-trading" },
     { l: "Voice Stock Trading", h: "#key-recovery" },
-    { l: "YieldShares", h: "#yield-shares" },
     { l: "Private x402 Payments", h: "#private-payments" },
     { l: "Roadmap", h: "#roadmap" },
   ];
@@ -277,7 +277,7 @@ function Hero() {
           transition={{ delay: 0.1, duration: 0.6 }}
           className="inline-flex items-center gap-3 px-3 py-1 rounded-full border border-border text-xs font-mono tracking-widest uppercase text-muted-foreground bg-background/40 backdrop-blur"
         >
-          <span>Voice Trading + Privacy · Robinhood Chain</span>
+          <span>YieldShares · Voice Trading · Robinhood Chain</span>
         </motion.div>
         <h1 className="mt-8 font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.98] tracking-tight max-w-5xl mx-auto">
           <WordReveal text="The world's first" delay={0.15} />
@@ -294,8 +294,7 @@ function Hero() {
           transition={{ delay: 1.15, duration: 0.6 }}
           className="mt-6 max-w-xl mx-auto text-muted-foreground"
         >
-          Trade crypto with your voice on Robinhood Chain with privacy built into the flow. Deposit
-          liquidity into YieldShares, trigger private x402 payments through a voice agent, and route
+          Turn your liquidity into a tradeable asset with YieldShares. Trade crypto with your voice on Robinhood Chain with privacy built into the flow, trigger private x402 payments, and route
           trading intent more discreetly through one AI-native protocol. Coming soon.
         </motion.p>
         <motion.div
@@ -305,9 +304,14 @@ function Hero() {
           className="mt-8 flex items-center justify-center gap-3 flex-wrap"
         >
           <Magnetic>
-            <a href="#" className="btn-lime group flex items-center justify-center gap-2 uppercase">
-              Voice Trading
+            <a href="#yield-shares" className="btn-lime group flex items-center justify-center gap-2 uppercase">
+              YieldShares
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+          </Magnetic>
+          <Magnetic>
+            <a href="#voice-trading" className="btn-ghost group flex items-center justify-center gap-2 uppercase">
+              Voice Trading
             </a>
           </Magnetic>
         </motion.div>
@@ -324,21 +328,21 @@ function ProductsIntro() {
   const items = [
     {
       n: "01",
+      t: "YieldShares",
+      d: "Turn your liquidity into a tradeable asset like a stock, not a locked NFT position.",
+      i: Coins,
+    },
+    {
+      n: "02",
       t: "Voice Trading + Privacy",
       d: "Speak trading intents and route them through a more private onchain flow.",
       i: Mic,
     },
     {
-      n: "02",
+      n: "03",
       t: "Voice Stock Trading",
       d: "Trade stock exposure by voice through private crypto rails.",
       i: Shield,
-    },
-    {
-      n: "03",
-      t: "YieldShares",
-      d: "Turn your liquidity into a tradeable asset like a stock, not a locked NFT position.",
-      i: Coins,
     },
     {
       n: "04",
@@ -401,7 +405,7 @@ function VoiceTrading() {
       <div className="grid md:grid-cols-[1.1fr_1fr] gap-16 items-start">
         <Reveal>
           <div className="flex items-center gap-3">
-            <span className="eyebrow">01 · Voice Trading + Privacy</span>
+            <span className="eyebrow">02 · Voice Trading + Privacy</span>
           </div>
           <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
             The world's first private voice-over trading protocol.
@@ -482,7 +486,7 @@ function YieldShares() {
       <div className="mx-auto max-w-7xl px-6 py-28 grid md:grid-cols-2 gap-16 items-center">
         <Reveal>
           <div className="flex items-center gap-3">
-            <span className="eyebrow">03 · YieldShares</span>
+            <span className="eyebrow">01 · YieldShares</span>
           </div>
           <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
             Turn liquidity into
@@ -905,7 +909,7 @@ function KeyRecovery() {
     >
       <Reveal>
         <div className="flex items-center gap-3">
-          <span className="eyebrow">02 · Voice Stock Trading</span>
+          <span className="eyebrow">03 · Voice Stock Trading</span>
         </div>
         <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
           Voice-over stock trading
@@ -1035,21 +1039,21 @@ function Roadmap() {
   const items = [
     {
       n: "01",
+      t: "YieldShares",
+      d: "Tradeable liquidity shares with auto-dividends and insurance protection.",
+      i: Coins,
+    },
+    {
+      n: "02",
       t: "Voice Trading + Privacy",
       d: "Private voice-directed trading on Robinhood Chain.",
       i: Mic,
     },
     {
-      n: "02",
+      n: "03",
       t: "Voice Stock Trading",
       d: "Private voice-routed stock exposure settled through crypto rails.",
       i: Shield,
-    },
-    {
-      n: "03",
-      t: "YieldShares",
-      d: "Tradeable liquidity shares with auto-dividends and insurance protection.",
-      i: Coins,
     },
     {
       n: "04",
@@ -1284,7 +1288,7 @@ function Footer() {
   const cols = [
     {
       h: "Products",
-      l: ["Voice Trading + Privacy", "Voice Stock Trading", "YieldShares", "Private x402 Payments"],
+      l: ["YieldShares", "Voice Trading + Privacy", "Voice Stock Trading", "Private x402 Payments"],
     },
     { h: "Protocol", l: ["Roadmap", "Docs", "Router API"] },
     { h: "Community", l: ["X", "TG"] },
@@ -1351,9 +1355,9 @@ function Landing() {
       <Nav />
       <Hero />
       <ProductsIntro />
+      <YieldShares />
       <VoiceTrading />
       <KeyRecovery />
-      <YieldShares />
       <PrivatePayments />
       <Roadmap />
       <Impact />
